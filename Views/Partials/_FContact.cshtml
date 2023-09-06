@@ -1,0 +1,69 @@
+﻿@model UmbracoProject1.Models.RequestModel
+<style>
+    #infoModals .modal-content{
+        border-radius:20px;
+        border:none;
+    }
+    .card.card-plain{
+        border:none;  
+    }
+    .bg-azul.text-center.py-4{
+        border-radius:20px 20px 0px 0px;
+    }
+</style>
+<div id="fContactDiv">
+    <form id="fContacto"
+          asp-controller="Requests"
+          asp-action="Crear"
+          data-ajax="true"
+          data-ajax-method="POST"
+          data-ajax-mode="replace"
+          data-ajax-update="#fContactDiv">
+        <div class="input-group input-group-outline mb-3">
+
+            @Html.LabelFor(x => x.Names, new { @class="form-label text-dark spiex-p-lead"})
+            <input class="form-control b-10" asp-for="@Model.Names">
+            <small class="form-text text-muted mb-1 mt-0"><span asp-validation-for="@Model.Names" class="text-danger"></span></small>
+        </div>
+        <div class="input-group input-group-outline mb-3">
+            @Html.LabelFor(x => x.LastName, new { @class="form-label spiex-p-lead text-dark"})
+            <input class="form-control b-10" asp-for="@Model.LastName">
+            <small class="form-text text-muted mb-1 mt-0"><span asp-validation-for="@Model.LastName" class="text-danger"></span></small>
+        </div>
+
+        <div class="input-group input-group-outline mb-3">
+            @Html.LabelFor(x => x.Company, new { @class="form-label spiex-p-lead text-dark"})
+            <input class="form-control b-10" asp-for="@Model.Company">
+            <small class="form-text text-muted mb-1 mt-0"><span asp-validation-for="@Model.Company" class="text-danger"></span></small>
+        </div>
+
+
+        <div class="input-group input-group-outline mb-3">
+            @Html.LabelFor(x => x.Job, new { @class="form-label spiex-p-lead text-dark"})
+            <input class="form-control b-10" asp-for="@Model.Job">
+            <small class="form-text text-muted mb-1 mt-0"><span asp-validation-for="@Model.Job" class="text-danger"></span></small>
+        </div>
+
+
+        <div class="input-group input-group-outline mb-3">
+            @Html.LabelFor(x => x.Email, new { @class="form-label spiex-p-lead text-dark"})
+            <input class="form-control b-10" asp-for="@Model.Email">
+            <small class="form-text text-muted mb-1 mt-0"><span asp-validation-for="@Model.Email" class="text-danger"></span></small>
+        </div>
+        <div class="input-group input-group-outline mb-3">
+            @Html.LabelFor(x => x.Phone, new { @class="form-label spiex-p-lead text-dark"})
+            <input class="form-control b-10" asp-for="@Model.Phone">
+            <small class="form-text text-muted mb-1 mt-0"><span asp-validation-for="@Model.Phone" class="text-danger"></span></small>
+        </div>
+        <div class="input-group input-group-outline mb-3">
+            @Html.LabelFor(x => x.Message, new { @class="form-label spiex-p-lead text-dark"})
+            @Html.TextAreaFor(x => x.Message, new { @class = "form-control b-10" })
+            <small class="form-text text-muted mb-1 mt-0"><span asp-validation-for="@Model.Message" class="text-danger"></span></small>
+        </div>
+
+        <div class="text-center">
+            <input type="submit" class="btn-spiex" value="Send" />
+        </div>
+    </form>
+</div>
+

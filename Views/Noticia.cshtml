@@ -1,0 +1,81 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "Master.cshtml";
+}
+
+
+@await Html.PartialAsync("_NoticiaHeader")
+
+<div id="noticias" class="container">
+    <div class="row mt-2">
+        <div class="col-sm-12">
+            <h1 class="spiex-section-title ">@Model.Value("titulo")</h1>
+                @Model.Value("contenido")
+
+        </div>
+    </div>
+</div>
+
+<br/>
+
+<div class="container">
+    <h1 class="spiex-section-title">Noticas que le pueden intersar</h1>
+</div>
+<div class="container">
+     <div class="row">
+        <div class="col-sm-12">
+            <div class="owl-news owl-carousel owl-theme">
+                @{
+                    var actual = @Model.Name();
+                	var Noticias = Umbraco.Content(Guid.Parse("d38c280c-5d26-4154-949f-e5314a9a64dc"))
+                    .ChildrenOfType("noticia")
+                    .Where(x => (x.Name != actual))
+                    .Where(x => x.IsVisible())
+                    .OrderByDescending(x => x.UpdateDate)
+                    .Take(5);
+                }
+
+                @foreach (var item in Noticias)
+	            {
+	             var img = item.Value<IPublishedContent>("imgbanner");
+	            	<div class="item mb-4">
+                        <div id="carusel" class="card border-0 shadow">
+                            <img class="img-fluid" src="@img.Url()" alt="Noticia" />
+                            <div class="card-body">
+                            @{
+                                if(@item.Value("titulo", fallback: Fallback.ToAncestors).ToString().Length > 60){
+                                    <p class="spiex-p-lead">@item.Value("titulo", fallback: Fallback.ToAncestors).ToString().Substring(0, 60)...</p>
+                                }
+                                else
+                                {
+                                    <p class="spiex-p-lead">@item.Value("titulo", fallback: Fallback.ToAncestors).ToString()</p>
+                                }
+                            }
+                            @{
+                                if(item.Value("descripcion", fallback: Fallback.ToAncestors).ToString().Length > 60){
+                                    <p class="descripcion">@item.Value("descripcion", fallback: Fallback.ToAncestors).ToString().Substring(0, 60)...</p>
+                                }
+                                else
+                                {
+                                    <p class="descripcion">@item.Value("descripcion", fallback: Fallback.ToAncestors).ToString()</p>
+                                }
+                            }
+                            @if (Model.Url().ToString().ToLower().Contains("/es/")){    
+                                <a  href="@item.Url()" class="btn-spiex-third mt-3">Ver más &#187;</a>
+                            }
+                            @if (Model.Url().ToString().ToLower().Contains("/en-us/")){
+                                <a href="@item.Url()" class="btn-spiex-third mt-3">See more &#187;</a>
+                            }
+                            </div>
+                        </div>
+                    </div>
+	            }
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+
+

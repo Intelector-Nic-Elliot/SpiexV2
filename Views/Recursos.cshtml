@@ -1,0 +1,171 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "Master.cshtml";
+}
+
+
+@await Html.PartialAsync("_Header")
+
+
+
+<!--Documentos -->
+<div class="container">
+    <h1 class="spiex-section-title">@Model.Value("titulo1")</h1>
+</div>
+<div class="container px-5">
+    <div class="row">
+        <div class="col-sm-12">
+                        <div class="owl-four owl-carousel owl-theme">
+                
+                @{
+                	var documentos = Umbraco.Content(Guid.Parse("64abb70c-0e61-497b-99c3-8d70848c8a55"))
+                    .ChildrenOfType("recurso")
+                    .Where(x => x.IsVisible());
+                }
+
+
+                @foreach (var documento in documentos)
+	            {
+                    <div class="item doc mb-4">
+                        <div id="carusel" class="card border-0 shadow">
+                            @{
+                                var prebanner2= documento.Value<IPublishedContent>("banner");
+                                var pre2 = documento.Value<IPublishedContent>("descargable");
+                                if (prebanner2 != null)
+                                {
+                                    <img id="sel" class="img-thumbnail " src="@prebanner2.Url()" alt=""/>
+                                }
+                            }
+                            <div class="card-body">
+                                <h2 class="text-start ">
+                                     <h2 class="text-start">@documento.Value("nombre")</h2>
+                                    <a download="@pre2.Name()" href="@pre2.Url()" class="btn-spiex">@Model.Value("textodescarga")</a>
+                                    <a href="@documento.Url()" class="btn-spiex-second">@Model.Value("textover")</a>
+
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                }
+                
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Presentaciones -->
+<div class="container">
+    <h1 class="spiex-section-title">@Model.Value("titulo2")</h1>
+</div>
+<div class="container px-5">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="owl-four owl-carousel owl-theme">
+                @{
+                	var presentaciones = Umbraco.Content(Guid.Parse("64abb70c-0e61-497b-99c3-8d70848c8a55"))
+                    .ChildrenOfType("presentacion")
+                    .Where(x => x.IsVisible());
+                }
+                @foreach (var presentacion in presentaciones)
+	            {
+                    <div class="item doc mb-4">
+                        <div id="carusel" class="card border-0 shadow">
+                            @{
+                                var prebanner= presentacion.Value<IPublishedContent>("banner");
+                                var pre = presentacion.Value<IPublishedContent>("descargable");
+                                if (prebanner != null)
+                                {
+                                    <img id="sel" class="img-thumbnail " src="@prebanner.Url()" alt=""/>
+                                }
+                            }
+                            <div class="card-body">
+                                <h2 class="text-start ">
+                                     <h2 class="text-start">@presentacion.Value("nombre")</h2>
+                                    <a download="@pre.Name()" href="@pre.Url()" class="btn-spiex">@Model.Value("textodescarga")</a>
+                                    <a href="@presentacion.Url()" class="btn-spiex-second">@Model.Value("textover")</a>
+
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                }
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        var i = 0;
+        var search = $('#Search');
+        var id = $('#Id');
+        var listado = $('#listado');
+
+        search.on("keyup", function (event) {
+            if (event.keyCode == 13) {
+                if (search.val() == "" || search.val() == null) {
+                    i = 0;
+                    listado.html("");
+                    Listado();
+                }
+                else {
+                    if (search.val().length > 3) {
+                        Buscador();
+                    }
+                }
+            }
+        });
+
+        function Listado() {
+            if (i > -1) {
+                $.ajax({
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader("RequestVerificationToken",
+                            $('input:hidden[name="__RequestVerificationToken"]').val());
+                    },
+                    url: listado.data('url'),
+                    type: 'POST',
+                    data: JSON.stringify({
+                        "cId": id.val(),
+                        "pIndex": i,
+                        "pSize": 100
+                    }),
+                    contentType: 'application/json; charset=utf-8'
+                }).done(function (result) {
+                    if (result.length > 0) {
+                        listado.append(result);
+                    }
+                    else {
+                        i = -1;
+                    }
+                });
+                i = ++i;
+            }
+        }
+
+        function Buscador() {
+            $.ajax({
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("RequestVerificationToken",
+                        $('input:hidden[name="__RequestVerificationToken"]').val());
+                },
+                url: listado.data('url'),
+                type: 'POST',
+                data: JSON.stringify({
+                    "sSearch": search.val()
+                }),
+                contentType: 'application/json; charset=utf-8'
+            }).done(function (result) {
+                listado.html(result);
+            });
+
+        }
+
+        $(document).ready(function () {
+            Listado();
+        });
+    </script>
+}

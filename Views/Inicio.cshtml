@@ -1,0 +1,557 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "Master.cshtml";
+}
+
+
+@await Html.PartialAsync("_Header")
+
+<!--Sectores-->
+<div class="container-fluid">
+    <div class="container">
+        <h1 class="spiex-section-title">@Model.Value("titulosectores")</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+        @{
+        	var selection = Umbraco.Content(Guid.Parse("78ac5dec-4966-4095-8ae4-48c6ddf91ed0"))
+            .ChildrenOfType("sectores")
+            .Where(x => x.IsVisible())
+            .OrderByDescending(x => x.UpdateDate);
+        }
+        <div class="col-sm-12">
+            <div class="owl-four owl-carousel owl-theme">
+                @foreach (var item in selection)
+	            {
+	             var img = item.Value<IPublishedContent>("imgbanner");
+	            	<div class="item mb-4">
+                        <div class="card border-0 shadow">
+                            <img class="carrousel-img img-fluid" src="@img.Url()" alt="Sector" />
+
+                            <div class="card-body">
+                                <a href="@item.Url()"><p id="sec" class="spiex-lead text-start">@item.Value("titulo")</p></a>
+                            </div>
+                        </div>
+                    </div>
+	            }
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<!-- Datos Macroeconomicos-->
+<div class="container-fluid bg-gris d-none d-sm-block">
+    <div class="container">
+        <h1 class="spiex-section-title pb-0">@Model.Value("titulo2")</h1>
+        <h3 class="spiex-lead pt-0">@Model.Value("tituloanual")</h3>
+    </div>
+    <div class="container pb-5">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon d-flex justify-content-center">
+                        @{
+                            var macro1 = Model.Value<IPublishedContent>("imgdato1");
+                            if (macro1 != null)
+                            {
+                                <img id="ico" src="@macro1.MediaUrl()" alt="" />
+                            }
+                        }
+                    </div>
+                    <p class="spiex-p-lead text-center">@Model.Value("titulodato1")</p>
+                    <p class="text-center text-dark">@Model.Value("descripcion1")</p>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon d-flex justify-content-center">
+                        @{
+                            var macro2 = Model.Value<IPublishedContent>("imgdato2");
+                            if (macro2 != null)
+                            {
+                                <img id="ico" src="@macro2.MediaUrl()" alt="" />
+                            }
+                        }
+                    </div>
+                    <p class="spiex-p-lead text-center">@Model.Value("titulodato2")</p>
+                    <p class="text-center text-dark">@Model.Value("descripcion2")</p>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon d-flex justify-content-center">
+                        @{
+                            var macro3 = Model.Value<IPublishedContent>("imgdato3");
+                            if (macro3 != null)
+                            {
+                                <img id="ico" src="@macro3.MediaUrl()" alt="" />
+                            }
+                        }
+                    </div>
+                    <p class="spiex-p-lead text-center">@Model.Value("titulodato3")</p>
+                    <p class="text-center text-dark">@Model.Value("descripcion3")</p>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon d-flex justify-content-center">
+                        @{
+                            var macro4 = Model.Value<IPublishedContent>("imgdato4");
+                            if (macro4 != null)
+                            {
+                                <img id="ico" src="@macro4.MediaUrl()" alt="" />
+                            }
+                        }
+                    </div>
+                    <p class="spiex-p-lead text-center">@Model.Value("titulodato4")</p>
+                    <p class=" text-center text-dark">@Model.Value("descripcion4")</p>
+                </div>
+            </div>
+            
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon d-flex justify-content-center">
+                        @{
+                            var macro5 = Model.Value<IPublishedContent>("imgdato5");
+                            if (macro5 != null)
+                            {
+                                <img id="ico" src="@macro5.MediaUrl()" alt="@macro5.Value("alt")" />
+                            }
+                        }
+                    </div>
+                    <p class="spiex-p-lead text-center">@Model.Value("titulodato5")</p>
+                    <p class="text-center text-dark">@Model.Value("descripcion5")</p>
+                </div>
+        </div>
+    
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon d-flex justify-content-center">
+                        @{
+                            var macro6 = Model.Value<IPublishedContent>("imgdato6");
+                            if (macro6 != null)
+                            {
+                                <img id="ico" src="@macro6.MediaUrl()" alt="@macro6.Value("alt")" />
+                            }
+                        }
+                    </div>
+                    <p class="spiex-p-lead text-center">@Model.Value("titulodato6")</p>
+                    <p class="text-center text-dark">@Model.Value("descripcion6")</p>
+                </div>
+        </div>
+    
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon d-flex justify-content-center">
+                        @{
+                            var macro7 = Model.Value<IPublishedContent>("imgdato7");
+                            if (macro7 != null)
+                            {
+                                <img id="ico" src="@macro7.MediaUrl()" alt="@macro7.Value("alt")" />
+                            }
+                        }
+                    </div>
+                    <p class="spiex-p-lead text-center">@Model.Value("titulodato7")</h1>
+                    <p class="text-center text-dark">@Model.Value("descripcion7")</p>
+                </div>
+        </div>
+    
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon d-flex justify-content-center">
+                        @{
+                            var macro8 = Model.Value<IPublishedContent>("imgdato8");
+                            if (macro8 != null)
+                            {
+                                <img id="ico" src="@macro8.MediaUrl()" alt="@macro8.Value("alt")" />
+                            }
+                        }
+                    </div>
+                    <p class="spiex-p-lead text-center">@Model.Value("titulodato8")</h1>
+                    <p class="text-center text-dark">@Model.Value("descripcion8")</p>
+                </div>
+        </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-gris d-block d-sm-none">
+        <div class="container">
+        <h1 class="spiex-section-title pb-0">@Model.Value("titulo2")</h1>
+        <h3 class="spiex-lead pt-0">@Model.Value("tituloanual")</h3>
+    </div>
+    <div class="container">
+        <div class=" row">
+            <div class="col-sm-12">
+                <div class="row row-cols-auto">
+                    <div class="owl-two owl-carousel owl-theme ">
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var macrom1 = Model.Value<IPublishedContent>("imgdato1");
+                                        if (macrom1 != null)
+                                        {
+                                            <img id="ico" src="@macrom1.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                <p class="spiex-p-lead text-center">@Model.Value("titulodato1")</p>
+                                <p class="text-center text-dark">@Model.Value("descripcion1")</p>
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var macrom2 = Model.Value<IPublishedContent>("imgdato2");
+                                        if (macrom2 != null)
+                                        {
+                                            <img id="ico" src="@macrom2.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                <p class="spiex-p-lead text-center">@Model.Value("titulodato2")</p>
+                                <p class="text-center text-dark">@Model.Value("descripcion2")</p>
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var macrom3 = Model.Value<IPublishedContent>("imgdato3");
+                                        if (macrom3 != null)
+                                        {
+                                            <img id="ico" src="@macrom3.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                <p class="spiex-p-lead text-center">@Model.Value("titulodato3")</p>
+                                <p class="text-center text-dark">@Model.Value("descripcion3")</p>
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var macrom4 = Model.Value<IPublishedContent>("imgdato4");
+                                        if (macrom4 != null)
+                                        {
+                                            <img id="ico" src="@macrom4.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                <p class="spiex-p-lead text-center">@Model.Value("titulodato4")</p>
+                                <p class="text-center text-dark">@Model.Value("descripcion4")</p>
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var macrom5 = Model.Value<IPublishedContent>("imgdato5");
+                                        if (macrom5 != null)
+                                        {
+                                            <img id="ico" src="@macrom5.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                <p class="spiex-p-lead text-center">@Model.Value("titulodato5")</p>
+                                <p class="text-center text-dark">@Model.Value("descripcion5")</p>
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var macrom6 = Model.Value<IPublishedContent>("imgdato6");
+                                        if (macrom6 != null)
+                                        {
+                                            <img id="ico" src="@macrom6.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                <p class="spiex-p-lead text-center">@Model.Value("titulodato6")</p>
+                                <p class="text-center text-dark">@Model.Value("descripcion6")</p>
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var macrom7 = Model.Value<IPublishedContent>("imgdato7");
+                                        if (macrom7 != null)
+                                        {
+                                            <img id="ico" src="@macrom7.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                <p class="spiex-p-lead text-center">@Model.Value("titulodato7")</p>
+                                <p class="text-center text-dark">@Model.Value("descripcion7")</p>
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var macrom8 = Model.Value<IPublishedContent>("imgdato8");
+                                        if (macrom8 != null)
+                                        {
+                                            <img id="ico" src="@macrom8.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                <p class="spiex-p-lead text-center">@Model.Value("titulodato8")</p>
+                                <p class="text-center text-dark">@Model.Value("descripcion8")</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>   
+<br>
+<br>
+@{
+    var documento = Model.Value<IPublishedContent>("documento");
+
+}
+
+<!--Guia del Inversionista-->
+<div class="container">
+    <div class="row d-flex justify-content-center m-auto">
+        <div class="col-sm-7 col-md-4 d-flex justify-content-center px-4">
+            @{
+                var guia = Model.Value<IPublishedContent>("imgguia");
+                if (guia != null)
+                {
+                    <img class="img-radius img-fluid" src="@guia.Url()" alt="" />
+                }
+            }
+        </div>
+        <div class="col-sm-12 col-md-7 align-self-center px-5">
+            <h1 class="spiex-section-title text-center pb-3">@Model.Value("titulo3")</h1>
+            <p class="text-dark text-center">@Model.Value("subtitulo1")</p>
+            <div id="document" class="text-sm-start text-center d-flex flex-wrap justify-content-center" data-aos="fade-up" data-aos-delay="100">
+                <a download="@documento.Name()" href="@documento.MediaUrl()" class="btn-spiex">@Model.Value("btnguia")</a>
+                 @if (Model.Url().ToString().ToLower().Contains("/es/"))
+                {
+                 <a href="/es/recursos" class="btn-spiex-second">@Model.Value("btnmas")</a>
+                }
+                 @if (Model.Url().ToString().ToLower().Contains("/en-us/"))
+                {
+                <a href="/en-us/recursos" class="btn-spiex-second">@Model.Value("btnmas")</a>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<!-- Noticias -->
+<div class="container-fluid bg-gris pb-3">
+    <div class="container">
+        <h1 class="spiex-section-title">@Model.Value("titulonews")</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="owl-news owl-carousel owl-theme">
+                    
+                    @{
+                    	var Noticias = Umbraco.Content(Guid.Parse("d38c280c-5d26-4154-949f-e5314a9a64dc"))
+                        .ChildrenOfType("noticia")
+                        .Where(x => x.IsVisible())
+                        .OrderByDescending(x => x.UpdateDate)
+                        .Take(5);
+                    }
+    
+                    @foreach (var item in Noticias)
+                    {
+                        var img = item.Value<IPublishedContent>("imgbanner");
+                        <div class="item mb-4">
+                            <div id="carusel" class="card border-0 shadow">
+                                <img class="img-fluid img-radius-top" src="@img.Url()" alt="Noticia" />
+    
+                                <div class="card-body">
+                                    @{
+                                        if(item.Value("titulo", fallback: Fallback.ToAncestors).ToString().Length > 60){
+                                            <p class="spiex-p-lead">@item.Value("titulo", fallback: Fallback.ToAncestors).ToString().Substring(0, 60)...</p>
+                                        }
+                                        else
+                                        {
+                                            <p class="spiex-p-lead">@item.Value("titulo", fallback: Fallback.ToAncestors).ToString()</p>
+                                        }
+                                    }
+                                    @{
+                                        if(item.Value("descripcion", fallback: Fallback.ToAncestors).ToString().Length > 60){
+                                            <p class="descripcion">@item.Value("descripcion", fallback: Fallback.ToAncestors).ToString().Substring(0, 60)...</p>
+                                        }
+                                        else
+                                        {
+                                            <p class="descripcion">@item.Value("descripcion", fallback: Fallback.ToAncestors).ToString()</p>
+                                        }
+                                    }
+                                    <a  href="@item.Url()" class="btn-spiex-third mt-3">@Model.Value("btnnoticias") &#187;</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container ver-todas d-flex justify-content-center mb-4">
+        @if (Model.Url().ToString().ToLower().Contains("/es/"))
+                    {
+                    <a id="ver-todas" href="/es/noticias" class="btn-spiex-second">@Model.Value("btnnoticiastodas")</a>
+                    }
+                     @if (Model.Url().ToString().ToLower().Contains("/en-us/"))
+                    {
+                    <a id="ver-todas" href="/en-us/noticias" class="btn-spiex-second">@Model.Value("btnnoticiastodas")</a>
+                    }
+    </div> 
+</div>
+
+
+<!-- Enlaces Externos-->
+<div id="enlaces" class="container-fluid">
+        <div class="container">
+        <h1 class="spiex-section-title">@Model.Value("tituloenlace")</h1>
+    </div>
+    <div class="container">
+        <div class=" row">
+            <div class="col-sm-12">
+                <div class="row row-cols-auto">
+                    <div class="owl-two owl-carousel owl-theme ">
+                        <div class="item mb-4">
+                            <a class="d-flex justify-content-center " href="@Model.Value("urlenlace1")" target="_blank">
+                                @{
+                                    var x = Model.Value<IPublishedContent>("imgexterno1");
+                                    if (x != null)
+                                    {
+                                        <img id="dga" class="img-fluid mb-4 " src="@x.MediaUrl()" alt="" />
+
+                                    }
+                                }
+                            </a>
+                        </div>
+                        <div class="item mb-4">
+                            <a class="d-flex justify-content-center " href="@Model.Value("urlenlace2")" target="_blank">
+                                @{
+                                    var x1 = Model.Value<IPublishedContent>("imgexterno2");
+                                    if (x1 != null)
+                                    {
+                                        <img id="mem" class="img-fluid mb-4 " src="@x1.MediaUrl()" alt="" />
+
+                                    }
+                                }
+                            </a>
+                        </div>
+                        <div class="item mb-4">
+                            <a class="d-flex justify-content-center " href="@Model.Value("urlenlace3")" target="_blank">
+                                @{
+                                    var x2 = Model.Value<IPublishedContent>("imgexterno3");
+                                    if (x2 != null)
+                                    {
+                                        <img id="dgi" class="img-fluid mb-4 " src="@x2.MediaUrl()" alt="" />
+
+                                    }
+                                }
+                            </a>
+                        </div>
+                        <div class="item mb-4">
+                            <a class="d-flex justify-content-center " href="@Model.Value("urlenlace4")" target="_blank">
+                                @{
+                                    var x3 = Model.Value<IPublishedContent>("imgexterno4");
+                                    if (x3 != null)
+                                    {
+                                        <img id="ana" class="img-fluid mb-4 " src="@x3.MediaUrl()" alt="" />
+
+                                    }
+                                }
+                            </a>
+                        </div>
+                        <div class="item mb-4">
+                            <a class="d-flex justify-content-center " href="@Model.Value("urlenlace5")" target="_blank">
+                                @{
+                                    var x4 = Model.Value<IPublishedContent>("imgexterno5");
+                                    if (x4 != null)
+                                    {
+                                        <img id="cn" class="img-fluid mb-4 " src="@x4.MediaUrl()" alt="" />
+
+                                    }
+                                }
+                            </a>
+                        </div>
+                        <div class="item mb-4">
+                            <a class="d-flex justify-content-center " href="@Model.Value("urlenlace6")" target="_blank">
+                                @{
+                                    var x5 = Model.Value<IPublishedContent>("imgexterno6");
+                                    if (x5 != null)
+                                    {
+                                        <img id="bcn" class="img-fluid mb-4 " src="@x5.MediaUrl()" alt="" />
+
+                                    }
+                                }
+                            </a>
+                        </div>
+                        <div class="item mb-4">
+                            <a class="d-flex justify-content-center " href="@Model.Value("urlenlace7")" target="_blank">
+                                @{
+                                    var x6 = Model.Value<IPublishedContent>("imgexterno7");
+                                    if (x6 != null)
+                                    {
+                                        <img id="ipsa" class="img-fluid mb-4 " src="@x6.MediaUrl()" alt="" />
+
+                                    }
+                                }
+                            </a>
+                        </div>
+                        <div class="item mb-4">
+                            <a class="d-flex justify-content-center " href="@Model.Value("urlenlace8")" target="_blank">
+                                @{
+                                    var x7 = Model.Value<IPublishedContent>("imgexterno8");
+                                    if (x7 != null)
+                                    {
+                                        <img id="marena" class="img-fluid mb-4 " src="@x7.MediaUrl()" alt="" />
+
+                                    }
+                                }
+                            </a>
+                        </div>
+                        <div class="item mb-4">
+                            <a class="d-flex justify-content-center " href="@Model.Value("urlenlace9")" target="_blank">
+                                @{
+                                    var x8 = Model.Value<IPublishedContent>("imgexterno9");
+                                    if (x8 != null)
+                                    {
+                                        <img id="mific" class="img-fluid mb-4 " src="@x8.MediaUrl()" alt="" />
+
+                                    }
+                                }
+                            </a>
+                        </div>
+                        <div class="item mb-4">
+                            <a class="d-flex justify-content-center " href="@Model.Value("urlenlace10")" target="_blank">
+                                @{
+                                    var x9 = Model.Value<IPublishedContent>("imgexterno10");
+                                    if (x9 != null)
+                                    {
+                                        <img id="telcor" class="img-fluid mb-4 " src="@x9.MediaUrl()" alt="" />
+
+                                    }
+                                }
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  

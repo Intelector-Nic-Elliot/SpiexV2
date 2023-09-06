@@ -1,0 +1,43 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "Master.cshtml";
+}
+
+
+@{
+    var doc = Model.Value<IPublishedContent>("descargable");
+    var docUrl = doc.Url().ToString();
+    var test = "/assets/web/viewer.html?file=" + docUrl;
+
+
+}
+@await Html.PartialAsync("_Header")
+
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-sm-12">
+            @*<h1>@Model.Value("nombre")  *@
+                
+            </h1> 
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-12 ">
+
+            <embed src="@test"frameborder="0" width="100%" height="800px" ></embed>
+            
+            
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="/assets/build/pdf.worker.js"></script>
+    
+}
+
+

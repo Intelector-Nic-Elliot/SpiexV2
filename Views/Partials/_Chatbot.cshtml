@@ -1,0 +1,189 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+<style>
+    
+/* Chat bot*/
+#btnChat {
+    width: 60px;
+    height:60px;
+    position: fixed;
+    right: 6px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 26%);
+    z-index: 9999;
+    cursor: pointer;
+    transform-origin: bottom;
+    bottom: 30px;
+    right: 30px;
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#173558;
+    border-radius:20px;
+    border:solid 1px #ffffff;
+}
+    
+#btnChat i{
+    font-size: 30px;
+    padding:0;
+    margin:0;
+    color:#ffffff;
+
+}
+.modal-header{
+    margin:0;
+    padding:0;
+    background-color:#173558;
+    color:#ffffff;
+    margin-bottom:-5px;
+}
+.card-header{
+    margin:0 !important;
+}
+#chatModal .modal-content{
+    margin:0 !important;
+    width:25vw;
+    height:60vh;  
+}
+
+#chatModal{
+    position: fixed;
+    top:inherit;
+    left:inherit;
+    bottom: 60px;
+    right: 80px; 
+    border-radius:10px;
+    overflow: hidden;
+    outline: 0;
+    z-index: 1060;
+    width:fit-content;
+    height:fit-content;
+}
+
+#btnComenzar{
+    background-color:#173558;
+    border-radius:10px;
+    border:solid 1px #ffffff;  
+}
+.bot-oscuro{
+    background-color:#173558;
+    color:#ffffff;
+    margin:10px;
+    border-radius: 10px;
+}
+.preguntas-oscuro{
+    background-color: #ededed;
+    color:#173558;
+    border-radius: 10px;
+}
+
+.btn-style{
+    border:solid 1px #173558;
+        border-radius:10px;
+        margin:10px;
+}
+
+.justify-content-end.text-right, .justify-content-start.mb-2{
+    margin:10px;
+}
+@@media only screen and (max-width:1200px){
+    #chatModal .modal-content{
+        margin:0 !important;
+        width:30vw;
+        height:60vh;  
+    }
+}
+
+@@media only screen and (max-width:900px){
+    #chatModal .modal-content{
+        margin:0 !important;
+        width:45vw;
+        height:60vh;  
+    }
+}
+
+@@media only screen and (max-width:600px){
+    #chatModal .modal-content{
+        margin:0 !important;
+        width:60vw;
+        height:60vh;  
+    }
+}
+
+@@media only screen and (max-width:600px){
+    #chatModal .modal-content{
+        margin:0 !important;
+        width:70vw;
+        height:60vh;  
+    }
+}
+</style>
+<!-- chat flotante -->
+<button class="btn btn-chat p-0" id="btnChat"><i class="bi bi-chat-dots"></i></button>
+
+<!-- The Modal -->
+<div id="chatModal" class="modal">
+    <div class="modal-header">
+        <div class="col-12">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+                    <div class="p-3">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="d-flex justify-content-left">
+                                        <div class="d-flex flex-column" style="margin-left:1rem">
+                                            <h6 class="mb-0 d-block text-white">SPIEX</h6>
+                                            @if (Model.Url().ToString().ToLower().Contains("/en-us/"))
+                                            {
+                                                <span class="text-sm text-white opacity-8">Online..</span>
+
+                                            }
+                                            
+                                            @if (Model.Url().ToString().ToLower().Contains("/es/"))
+                                            {
+                                                <span class="text-sm text-white opacity-8">En linea..</span>
+
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-left align-items-center">
+                                        <span class="close" style="font-size:30px">&times;</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="modal-content overflow-auto">
+        <div class="row">
+            <div id="chat-body" class="card-body">
+                <div id="inicio-consulta" class="col-12">
+                    <div class="tile">
+                        
+                        
+                                            @if (Model.Url().ToString().ToLower().Contains("/en-us/"))
+                                            {
+                                                <h3 class="tile-title text-center">Consultation</h3>
+
+                        <button type="button" id="btnComenzar" class="btn w-100 text-white my-4 mb-2">Start </button>
+
+                                            }
+                                            
+                                            @if (Model.Url().ToString().ToLower().Contains("/es"))
+                                            {
+                                                <h3 class="tile-title text-center">Consulta</h3>
+
+                        <button type="button" id="btnComenzar" class="btn w-100 text-white my-4 mb-2">Iniciar</button>
+
+                                            }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="chats" data-url="@Url.Action("Chats", "Chatbot")"></div>

@@ -1,0 +1,249 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "Master.cshtml";
+}
+
+
+@{
+    var doc = Model.Value<IPublishedContent>("btndescarga");
+    var docUrl = doc.Url().ToString();
+    var test = "/assets/web/viewer.html?file=" + docUrl;
+
+
+}
+
+
+
+
+@await Html.PartialAsync("_Header")
+<div class="container">
+    <h1 class="spiex-section-title">@Model.Value("titulomain")</h1>
+</div>
+<div class="container pb-5">
+    <div class="row text-center justify-content-center mx-auto">
+      <div class="col-sm-3">
+        <h1 class="text-sector" id="state1" countTo="@Model.Value("dato")"></h1>
+        <p class="text-dark spiex-p-lead">@Model.Value("titulo1")</p>
+      </div>
+      <div class="col-sm-3">
+        <h1 class="text-sector" id="state2" countTo="@Model.Value("dato2")"></h1>
+        <p class="text-dark spiex-p-lead">@Model.Value("titulo2")</p>
+      </div>
+      <div class="col-sm-3">
+        <h1 class="text-sector" id="state3" countTo="@Model.Value("dato3")"></h1>
+        <p class="text-dark spiex-p-lead">@Model.Value("titulo3")</p>
+      </div>
+    </div>
+</div>
+@{
+var icon1 = Model.Value<IPublishedContent>("icono");
+var icon2 = Model.Value<IPublishedContent>("icono2");
+var icon3 = Model.Value<IPublishedContent>("icono3");
+var icon4 = Model.Value<IPublishedContent>("icono4");
+}
+
+<div class="container py-5">
+	<div class="row">
+		<div class="col-sm-6 col-md-6 col-lg-3 mb-3">
+		    <div class="m-100 bg-gris p-4 b-20 d-flex flex-column align-items-center">
+                <div class="d-flex align-items-center justify-content-center interico">
+                    @if (icon1 != null)
+                    {
+                        <img class="inter" src="@icon1.Url()">
+                    }
+                </div>
+			<p class="text-sector-blue">@Model.Value("texto1")</p>
+		    </div>
+		</div>
+		<div class="col-sm-6 col-md-6 col-lg-3 mb-3">
+		    <div class="m-100 bg-gris p-4 b-20 d-flex flex-column align-items-center">
+                <div class="d-flex align-items-center justify-content-center interico">
+                    @if (icon2 != null)
+                    {
+                        <img class="inter" src="@icon2.Url()">
+                    }
+                </div>
+		    
+			<p class="text-sector-blue">@Model.Value("texto2")</p>
+		    </div>
+		</div>
+		<div class="col-sm-6 col-md-6 col-lg-3 mb-3">
+		    <div class="m-100 bg-gris p-4 b-20 d-flex flex-column align-items-center">
+                <div class="d-flex align-items-center justify-content-center interico">
+                    @if (icon3 != null)
+                    {
+                        <img class="inter" src="@icon3.Url()">
+                    }
+                </div>
+		    
+			<p class="text-sector-blue">@Model.Value("texto3")</p>
+		    </div>
+		</div>
+		<div class="col-sm-6 col-md-6 col-lg-3 mb-3">
+		    <div class="m-100 bg-gris p-4 b-20 d-flex flex-column align-items-center">
+                <div class="d-flex align-items-center justify-content-center interico">
+                    @if (icon4 != null)
+                    {
+                        <img class="inter" src="@icon4.Url()">
+                    }
+                </div>
+			<p class="text-sector-blue">@Model.Value("texto4")</p>
+		    </div>
+		</div>
+	</div>
+</div>
+
+@{
+var iconp1 = Model.Value<IPublishedContent>("iconop");
+var iconp2 = Model.Value<IPublishedContent>("iconop2");
+var iconp3 = Model.Value<IPublishedContent>("iconop3");
+var iconp4 = Model.Value<IPublishedContent>("iconop4");
+}
+
+<div class="container-fluid bg-gris">
+    <div class="container">
+        <h1 class="spiex-section-title">@Model.Value("tituloProductos")</h1>
+    </div>
+    <div class="container">
+	<div class="row">
+		<div class="col-sm-6 col-md-6 col-lg-3 mb-3">
+		    <div class="m-100 bg-gris p-4 b-20 d-flex flex-column align-items-center">
+		    @if (iconp1 != null)
+            {
+                <img class="pro-sector" src="@iconp1.Url()">
+            }
+			<p class="text-sector-blue">@Model.Value("textop")</p>
+		    </div>
+		</div>
+		<div class="col-sm-6 col-md-6 col-lg-3 mb-3">
+		    <div class="m-100 bg-gris p-4 b-20 d-flex flex-column align-items-center">
+		    @if (iconp2 != null)
+            {
+                <img class="pro-sector" src="@iconp2.Url()">
+            }
+			<p class="text-sector-blue">@Model.Value("textop2")</p>
+		    </div>
+		</div>
+		<div class="col-sm-6 col-md-6 col-lg-3 mb-3">
+		    <div class="m-100 bg-gris p-4 b-20 d-flex flex-column align-items-center">
+		    @if (iconp3 != null)
+            {
+                <img class="pro-sector" src="@iconp3.Url()">
+            }
+			<p class="text-sector-blue">@Model.Value("textop3")</p>
+		    </div>
+		</div>
+		<div class="col-sm-6 col-md-6 col-lg-3 mb-3">
+		    <div class="m-100 bg-gris p-4 b-20 d-flex flex-column align-items-center">
+		    @if (iconp4 != null)
+            {
+                <img class="pro-sector" src="@iconp4.Url()">
+            }
+			<p class="text-sector-blue">@Model.Value("textop4")</p>
+		    </div>
+		</div>
+	</div>
+</div>
+</div>
+
+@{
+    var documento = Model.Value<IPublishedContent>("btndescarga");
+}
+<div class="container p-5">
+	<div class="row">
+		<div class="col-md-6">
+		    <div class="col-10 col-sm-8 col-lg-10 col-xl-7 m-auto">
+		    @{
+                var img = Model.Value<IPublishedContent>("imagen");
+            }
+			<img id="repre" class="img-thumbnail img-fluid order-sm-first m-3 m-auto" src="@img.Url()" alt="" />
+		    </div>
+		</div>
+		<div class="col-md-6 align-self-center">
+		    <h2 class="spiex-lead text-center">@Model.Value("titulop")</h2>
+		    <h2 class="spiex-lead text-center mb-3">@Model.Value("subtitulop")</h2>
+			<p class="text-dark text-center mb-3">@Model.Value("descripcion")</p>
+			<div id="document" class="text-sm-start text-center d-flex flex-wrap justify-content-center" data-aos="fade-up" data-aos-delay="100">
+				<a download="@documento.Name()" id="guia" href="@documento.MediaUrl()"
+				    class="btn-spiex">@Model.Value("titulodescarga")</a>
+				<a href="@documento.Url()" class="btn-spiex-second">@Model.Value("tituloasesor")</a>
+
+			</div>
+		</div>
+	</div>
+
+</div>
+	@{
+	    var actual = @Model.Name();
+    	var selection = Umbraco.Content(Guid.Parse("78ac5dec-4966-4095-8ae4-48c6ddf91ed0"))
+        .ChildrenOfType("sectores")
+        .Where(x => (x.Name != actual))
+        .Where(x => x.IsVisible())
+        .OrderByDescending(x => x.UpdateDate);
+    }
+
+<div class="container">
+    <h1 class="spiex-section-title">@Model.Value("massectores")</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="owl-four owl-carousel owl-theme">
+                @foreach (var item in selection)
+	            {
+	                var lol = item.Value<IPublishedContent>("imgbanner");
+	                
+	            	<div class="item mb-4">
+                        <div id="carusel" class="card border-0 shadow">
+                            <img class="img-fluid" src="@lol.Url()" alt="Sector" />
+
+                            <div class="card-body">
+                                <a href="@item.Url()"><p class="spiex-lead">@item.Value("titulo")</p></a>
+                            </div>
+                        </div>
+                    </div>
+	            }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Mandatory scripts -->
+<script src="/scripts/countup.min.js"></script>
+<script src="?v=3.0.4" type="text/javascript"></script>
+<script type="text/javascript">
+  if (document.getElementById("state1")) {
+    const countUp = new CountUp("state1", document.getElementById("state1").getAttribute("countTo"));
+    if (!countUp.error) {
+      countUp.start();
+    } else {
+      console.error(countUp.error);
+    }
+  }
+  if (document.getElementById("state2")) {
+    const countUp1 = new CountUp("state2", document.getElementById("state2").getAttribute("countTo"));
+    if (!countUp1.error) {
+      countUp1.start();
+    } else {
+      console.error(countUp1.error);
+    }
+  }
+  if (document.getElementById("state3")) {
+    const countUp2 = new CountUp("state3", document.getElementById("state3").getAttribute("countTo"));
+    if (!countUp2.error) {
+      countUp2.start();
+    } else {
+      console.error(countUp2.error);
+    };
+  }
+</script>
+
+
+@section Scripts{
+    <script src="/assets/build/pdf.worker.js"></script>
+    
+}

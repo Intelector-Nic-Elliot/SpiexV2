@@ -1,0 +1,200 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "Master.cshtml";
+}
+
+
+@await Html.PartialAsync("_Header")
+<style>
+.snip1361 img {
+    height: 350px;
+    width: 100%;
+}
+
+
+.snip1361 {
+  position: relative;
+  overflow: hidden;
+  min-height:400px;
+  max-height:400px;
+  width: 100%;
+  color: #141414;
+  text-align: left;
+  line-height: 1.4em;
+  font-size: 16px;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,0.125);
+  border-radius:20px;
+}
+.snip1361 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+
+.snip1361 figcaption {
+  position: absolute;
+  top: calc(85%);
+  width: 100%;
+  min-height:500px;
+  background-color: #ffffff;
+  padding: 15px 25px 65px;
+}
+.snip1361 figcaption:before {
+  position: absolute;
+  content: '';
+  z-index: 2;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-image: -webkit-linear-gradient(top, transparent 0%, #ffffff 100%);
+  background-image: linear-gradient(to bottom, transparent 0%, #ffffff 100%);
+}
+
+.snip1361 a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+.snip1361:hover figcaption,
+.snip1361.hover figcaption {
+  top: calc(60%);
+}
+
+
+@@media only screen and (max-width: 769px) {
+      .snip1361 {
+      position: relative;
+      overflow: hidden;
+      min-height:250px;
+      max-height:250px;
+      width: 100%;
+      color: #141414;
+      text-align: left;
+      line-height: 1.4em;
+      font-size: 16px;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid rgba(0,0,0,0.125);
+      border-radius:20px;
+    }
+    
+        .snip1361 img {
+        height: 200px;
+        width: 100%
+    }
+    
+    
+    .snip1361 figcaption {
+      position: absolute;
+      top: calc(80%);
+      width: 100%;
+      min-height:500px;
+      background-color: #ffffff;
+      padding: 15px;
+    }
+    .snip1361 figcaption:before {
+      position: absolute;
+      content: '';
+      z-index: 2;
+      bottom: 100%;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background-image: -webkit-linear-gradient(top, transparent 0%, #ffffff 100%);
+      background-image: linear-gradient(to bottom, transparent 0%, #ffffff 100%);
+    }
+    
+}
+
+
+
+
+</style>
+@{
+	var selection = Umbraco.Content(Guid.Parse("78ac5dec-4966-4095-8ae4-48c6ddf91ed0"))
+    .ChildrenOfType("sectores")
+    .Where(x => x.IsVisible())
+    .OrderByDescending(x => x.UpdateDate);
+}
+
+<!--Sectores-->
+@foreach (var item in selection)
+{
+    var img = item.Value<IPublishedContent>("imgbanner");
+    var imgdetalle1 = item.Value<IPublishedContent>("detalleimg1");
+    var imgdetalle2 = item.Value<IPublishedContent>("detalleimg2");
+    var imgdetalle3 = item.Value<IPublishedContent>("detalleimg3");
+    var imgdetalle4 = item.Value<IPublishedContent>("detalleimg4");
+    <div class="sector-contenido container-fluid">
+        <div class="container">
+            <div class="row py-5">
+    	<div class="col-sm-12 col-md-6 col-lg-6 col-xl-5">
+            <figure class="snip1361">
+              <img src="@img.Url()" alt="sample45"/>
+              <figcaption>
+                <h3 class="mb-3 spiex-lead">@item.Value("titulo")</h3>
+                <p>@item.Value("subtitulo")</p>
+              </figcaption>
+              <a href="@item.Url()"></a>
+            </figure>
+        </div>
+        <div class="sectores-iconos col-sm-12 col-md-6 col-lg-6 col-xl-7 d-flex justify-content-center flex-column">
+            <h2 class="spiex-lead mb-4">@item.Value("subsector")</h2>
+            <div class="info-horizontal d-flex align-items-center">
+              <div class="icon icon-shape bg-azul d-flex justify-content-center align-items-center">
+                @if (imgdetalle1 != null)
+                {
+                    <img class="icosecto" src="@imgdetalle1.Url()">
+                }
+              </div>
+              <div class="description ps-3">
+                <p class="text-dark spiex-p-lead">@item.Value("detalle1")</p>
+              </div>
+            </div>
+            <div class="info-horizontal d-flex align-items-center">
+              <div class="icon icon-shape bg-azul d-flex justify-content-center align-items-center">
+                @if (imgdetalle2 != null)
+                {
+                    <img class="icosecto " src="@imgdetalle2.Url()">
+                }
+              </div>
+              <div class="description ps-3">
+                <p class="text-dark spiex-p-lead">@item.Value("detalle2")</p>
+              </div>
+            </div>
+            <div class="info-horizontal d-flex align-items-center">
+              <div class="icon icon-shape bg-azul d-flex justify-content-center align-items-center">
+                @if (imgdetalle3 != null)
+                {
+                    <img class="icosecto" src="@imgdetalle3.Url()" >
+                }
+              </div>
+              <div class="description ps-3">
+                <p class="text-dark spiex-p-lead">@item.Value("detalle3")</p>
+              </div>
+            </div>
+            <div class="info-horizontal d-flex align-items-center">
+              <div class="icon icon-shape bg-azul d-flex justify-content-center align-items-center">
+                @if (imgdetalle4 != null)
+                {
+                    <img class="icosecto " src="@imgdetalle4.Url()">
+                }
+              </div>
+              <div class="description ps-3">
+                <p class="text-dark spiex-p-lead">@item.Value("detalle4")</p>
+              </div>
+            </div>
+        </div>
+</div>
+        </div>
+    </div>
+}
+</div>

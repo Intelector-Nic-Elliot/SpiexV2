@@ -1,0 +1,123 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "Master.cshtml";
+}
+
+
+@await Html.PartialAsync("_Header")
+
+@if (Model.Url().ToString().ToLower().Contains("/es/"))
+{
+<!-- Formulario-->
+<div class="container">
+    <h1 class="spiex-section-title py-5">Contáctenos</h1>
+</div>
+<div class="container-fluid mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-7 py-5 bg-gris contact-form">
+                <div class="row">
+                        @await Html.PartialAsync("_FContacto", new UmbracoProject1.Models.SolicitudModel())
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-5 py-5 bg-azul contact-info">
+                    <p class="spiex-lead text-white mb-4">Información</p>
+                    <div>
+                        <div class="d-flex">
+                            <i class="bi bi-geo-alt-fill px-4 text-white"></i>
+                            <p class="spiex-p-lead text-white m-0">Managua, Nicaragua</p>
+                        </div><hr>
+                        <div class="d-flex">
+                            <i class="bi bi-telephone-fill px-4 text-white"></i>
+                            <p class="spiex-p-lead text-white m-0">Contacto: (505) 2277-5555</p>
+                        </div><hr>
+                        <div class="d-flex">
+                            <i class="bi bi-envelope-fill px-4 text-white"></i>
+                            <p class="spiex-p-lead text-white m-0">Correo: info@spiex.gob.ni</p>
+                        </div><hr>
+                    </div>
+                </div>   
+        </div>
+    </div>
+</div>
+<br/>
+
+}
+
+
+<!--Formulario Ingles-->
+@if (Model.Url().ToString().ToLower().Contains("/en-us/"))
+{
+<div class="container">
+    <h1 class="spiex-section-title py-5">Contact Us</h1>
+</div>
+<div class="container-fluid mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-7 py-5 bg-gris contact-form">
+                <div class="row">
+                        @await Html.PartialAsync("_FContact", new UmbracoProject1.Models.RequestModel())
+                </div>
+            </div>
+            
+            <div class="col-sm-12 col-md-5 py-5 bg-azul contact-info">
+                <p class="spiex-lead text-white mb-4">Information</p>
+                <div>
+                    <div class="d-flex">
+                        <i class="bi bi-geo-alt-fill px-4 text-white"></i>
+                        <p class="spiex-p-lead text-white m-0">Managua, Nicaragua</p>
+                    </div><hr>
+                    <div class="d-flex">
+                        <i class="bi bi-telephone-fill px-4 text-white"></i>
+                        <p class="spiex-p-lead text-white m-0">contact: (505) 2277-5555</p>
+                    </div><hr>
+                    <div class="d-flex">
+                        <i class="bi bi-envelope-fill px-4 text-white"></i>
+                        <p class="spiex-p-lead text-white m-0">Mail: info@spiex.gob.ni</p>
+                    </div><hr>
+                </div>
+            </div>
+        </div>   
+    </div>
+
+</div>
+<br/>
+}
+
+<!-- Preguntas Frecuentes -->
+<div class="container-fluid bg-gris">
+    <div class="container">
+        <h1 class="spiex-section-title py-5">@Model.Value("titulo1")</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+        <div class="col-sm-12">
+            <div class="container pb-5">
+                @{
+            	var selection = Umbraco.Content(Guid.Parse("9a628330-ee37-4956-8eac-b2f1808a5600"))
+                .ChildrenOfType("pregunta")
+                .Where(x => x.IsVisible());
+                }
+            	@foreach (var item in selection)
+            	{
+                <div class="faq-contenedor col-sm-12 col-lg-10 mx-auto py-3 mb-4">
+                    <details class="custom-details servicio-card">
+                    <summary class="d-flex">
+                        <p class="d-flex spiex-p-lead" style="max-width:80%;">@item.Value("pregunta1")</p>
+                    </summary>
+                    <hr class="colored-hr">
+                        @item.Value("respuesta")
+                    </details>
+                </div>
+            	}
+            </div>
+        </div>
+    </div>
+    </div>
+
+</div>        
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
+}

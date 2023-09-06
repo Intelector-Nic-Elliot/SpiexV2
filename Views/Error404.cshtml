@@ -1,0 +1,35 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "Master.cshtml";
+	var fondo = Model.Value<IPublishedContent>("fondo");
+
+}
+
+<style>
+    .error{
+        background-color:rgba(0,0,0,0.6);
+        border-radius:10px;
+    }
+</style>
+
+<div class="page-header d-flex justify-content-center align-items-center" style="background-image: url('@fondo.Url()');background-size:cover; background-position:center center; min-height:100vh;" loading="lazy">
+    <span class="mask bg-gradient-dark opacity-6"></span>
+    <div class="container my-auto">
+      <div class="row">
+        <div class="error col-sm-12 col-md-10 col-lg-8 m-auto text-center py-5">
+          <h1 class="display-1 text-bolder text-white">Error 404</h1>
+          <h2 class="text-white">@Model.Value("titulo")</h2>
+          <p class="lead text-white">@Model.Value("subtitulo")</p>
+          
+          @if (Model.Url().ToString().ToLower().Contains("/es/")){
+            <a type="button" href="/es/" class="btn btn-spiex mt-3">@Model.Value("texto")</a>
+          }
+          @if (Model.Url().ToString().ToLower().Contains("/en-us/")){
+            <a type="button" href="/en-us/" class="btn btn-spiex mt-3">@Model.Value("texto")</a>
+          }
+          
+        </div>
+      </div>
+    </div>
+  </div>

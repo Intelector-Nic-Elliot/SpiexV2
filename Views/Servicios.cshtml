@@ -1,0 +1,196 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "Master.cshtml";
+}
+
+
+@await Html.PartialAsync("_Header")
+<style>
+    
+ .texto{
+        padding: 5rem;
+    }
+
+    .servicio-contenedor{
+        padding-right: 3rem;
+        padding-left: 3rem;
+    }
+    .testimonios{
+        padding: 2.5rem;
+    }
+    
+    .text-blue{
+        color: #173558 !important;
+    }
+@@media only screen and (max-width: 600px) {
+        .servicio-contenedor {
+            padding-right: 0.5rem;
+            padding-left: 0.5rem;
+        }
+      
+        .texto{
+            padding: 1rem;
+        }
+    }
+    
+    
+.card-serv {
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 20px;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-body-ser {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    position: absolute;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+    color: #ffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 1s;
+    border-radius: 20px;
+    padding:15px;
+}
+
+
+.card-serv:hover .card-body-ser {
+    left: 0;
+}
+
+.card-tittle{
+    text-transform: uppercase;
+    text-align:center;
+}
+
+</style>
+<!--Section 1-->
+<div class="container">
+    <div class="row">
+      <div class="col-lg-12 mx-auto ">
+        <h2 class="spiex-section-title">@Model.Value("tituloPrincipal")</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <div class="p-3 text-center">
+          <div class="icon icon-shape icon-md bg-gradient-primary shadow mx-auto bg-azul">
+            <i class="material-icons opacity-10 bg-azul"></i>
+          </div>
+          <h5 class="mt-3 mb-2 spiex-subtitle">@Model.Value("titulo1")</h5>
+          <p class="text-dark">@Model.Value("texto1")</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="p-3 text-center">
+          <div class="icon icon-shape icon-md bg-gradient-info shadow mx-auto bg-azul">
+            <i class="material-icons opacity-10 bg-azul"></i>
+          </div>
+          <h5 class="mt-3 mb-2 spiex-subtitle">@Model.Value("titulo2")</h5>
+          <p class="text-dark">@Model.Value("texto2")</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mx-md-auto">
+        <div class="p-3 text-center">
+          <div class="icon icon-shape icon-md bg-gradient-warning shadow mx-auto bg-azul">
+            <i class="material-icons opacity-10 bg-azul"></i>
+          </div>
+          <h5 class="mt-3 mb-2 spiex-subtitle">@Model.Value("titulo3")</h5>
+          <p class="text-dark">@Model.Value("texto3")</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<br>
+<br>
+
+<!--Servicios-->
+<div class="container-fluid bg-gris">
+    <div class="container section-servicios">
+    <div class="row">
+      <div class="col-lg-12 mx-auto ">
+        <h2 class="spiex-section-title">@Model.Value("tituloEtapa")</h2>
+      </div>
+    <div class="row">
+
+        @{
+        	var servicios = Umbraco.Content(Guid.Parse("0320ac25-f4ab-4d21-bf89-fd004da764f8"))
+            .ChildrenOfType("servicio")
+            .Where(x => x.IsVisible());
+        }
+    	@foreach (var servicio in servicios)
+    	{
+            <div class="card-sector col-12 col-md-6 col-lg-4 mb-3">
+                @{
+                 var banner = servicio.Value<IPublishedContent>("banner");
+                }
+                <div class="card-serv">            
+                    <img class="card-img img-fluid" src="@banner.Url()" alt="">
+                    <div class="card-body-ser">
+                        <h1 class="spiex-section-title text-white pb-3">@servicio.Value("nombre")</h1>
+                            @servicio.Value("contenido")
+                        <div class="m-auto">
+                            <a data-bs-toggle="modal" data-bs-target="#infoModal" type="button" class="btn-spiex">@servicio.Value("botontexto")</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+</div>
+
+<br>
+<br>
+</div>
+
+
+<!--Testimonios-->
+<div class="container section-servicios mb-5">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 id="secti" class="spiex-section-title">@Model.Value("titulotestimonios")</h1>
+        </div>
+    </div>
+    <div class="row">
+            <div class="col-sm-12">
+                <div class="owl-one owl-carousel owl-theme">
+                    
+                    @{
+                    	var testimonios = Umbraco.Content(Guid.Parse("62342875-9312-4c84-9959-8b9055b3c298"))
+                        .ChildrenOfType("testimonio")
+                        .Where(x => x.IsVisible())
+                        .OrderByDescending(x => x.UpdateDate);
+                        
+                    }
+                    @foreach (var testimonio in testimonios)
+	                {
+                    <div class="item mb-4">
+                        <div id="carusel" class="card border-0 shadow">
+                            <div class="testimonios">
+                            <h3>@testimonio.Value("nombre")</h3>
+                            <div class="d-flex flex-row flex-wrap">
+                                <h5>@testimonio.Value("cargo") /&nbsp;</h5><h5>@testimonio.Value("empresa")</h5>
+                                </div>
+                            @testimonio.Value("contenido")
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+</div>

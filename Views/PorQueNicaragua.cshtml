@@ -1,0 +1,1394 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "Master.cshtml";
+}
+
+@await Html.PartialAsync("_Header")
+
+
+<!--Numero 1 de CentroAmerica-->
+<div class="container-fluid d-none d-sm-block pb-5">
+    <div class="container">
+        <h1 class="spiex-section-title">@Model.Value("titulocentroamerica")</h1>
+    </div>
+   <div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon d-flex justify-content-center">
+                    @{
+                        var crimen = Model.Value<IPublishedContent>("img_nic");
+                        if (crimen != null)
+                        {
+                            <img id="ico" src="@crimen.MediaUrl()" alt="" />
+                        }
+                    }
+                </div>
+                <p class="text-center text-dark">@Model.Value("descripcion1")</p>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon d-flex justify-content-center">
+                    @{
+                        var personas = Model.Value<IPublishedContent>("img_nic2");
+                        if (personas != null)
+                        {
+                            <img id="ico" src="@personas.MediaUrl()" alt="" />
+                        }
+                    }
+                </div>
+                <p class="text-center text-dark">@Model.Value("descripcion2")</p>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon d-flex justify-content-center">
+                    @{
+                        var calles = Model.Value<IPublishedContent>("img_nic3");
+                        if (calles != null)
+                        {
+                            <img id="ico" src="@calles.MediaUrl()" alt="" />
+                        }
+                    }
+                </div>
+                <p class="text-center text-dark">@Model.Value("descripcion3")</p>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon d-flex justify-content-center">
+                    @{
+                        var exportar = Model.Value<IPublishedContent>("img_nic4");
+                        if (exportar != null)
+                        {
+                            <img id="ico" src="@exportar.MediaUrl()" alt="" />
+                        }
+                    }
+                </div>
+                <p class="text-center text-dark">@Model.Value("descripcion4")</p>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon d-flex justify-content-center">
+                    @{
+                        var empresa = Model.Value<IPublishedContent>("img_nic5");
+                        if (empresa != null)
+                        {
+                            <img id="ico" src="@empresa.MediaUrl()" alt="" />
+                        }
+                    }
+                </div>
+                <p class="text-center text-dark">@Model.Value("descripcion5")</p>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon d-flex justify-content-center">
+                    @{
+                        var crecimiento = Model.Value<IPublishedContent>("img_nic6");
+                        if (crecimiento != null)
+                        {
+                            <img id="ico" src="@crecimiento.MediaUrl()" alt="" />
+                        }
+                    }
+                </div>
+                <p class="text-center text-dark">@Model.Value("descripcion6")</p>
+            </div>
+        </div>
+        
+        <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon d-flex justify-content-center">
+                    @{
+                        var crecimiento1 = Model.Value<IPublishedContent>("img_nic7");
+                        if (crecimiento1 != null)
+                        {
+                            <img id="ico" src="@crecimiento1.MediaUrl()" alt="" />
+                        }
+                    }
+                </div>
+                <p class="text-center text-dark">@Model.Value("descripcion7")</p>
+            </div>
+        </div>
+        
+        <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon d-flex justify-content-center">
+                    @{
+                        var crecimiento2 = Model.Value<IPublishedContent>("img_nic8");
+                        if (crecimiento2 != null)
+                        {
+                            <img id="ico" src="@crecimiento2.MediaUrl()" alt="" />
+                        }
+                    }
+                </div>
+                <p class="text-center text-dark">@Model.Value("descripcion8")</p>
+            </div>
+        </div>
+    </div>
+</div> 
+</div>
+<div class="container-fluid -block d-sm-none">
+        <div class="container">
+        <h1 class="spiex-section-title">@Model.Value("titulocentroamerica")</h1>
+    </div>
+    <div class="container">
+        <div class=" row">
+            <div class="col-sm-12">
+                <div class="row row-cols-auto">
+                    <div class="owl-two owl-carousel owl-theme ">
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var nic1 = Model.Value<IPublishedContent>("img_nic");
+                                        if (nic1 != null)
+                                        {
+                                            <img id="ico" src="@nic1.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                <p class="text-center text-dark">@Model.Value("descripcion1")</p>
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var nic2 = Model.Value<IPublishedContent>("img_nic2");
+                                        if (nic2 != null)
+                                        {
+                                            <img id="ico" src="@nic2.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                <p class="text-center text-dark">@Model.Value("descripcion2")</p>
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var nic3 = Model.Value<IPublishedContent>("img_nic3");
+                                        if (nic3 != null)
+                                        {
+                                            <img id="ico" src="@nic3.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                <p class="text-center text-dark">@Model.Value("descripcion3")</p>
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var nic4 = Model.Value<IPublishedContent>("img_nic4");
+                                        if (nic4 != null)
+                                        {
+                                            <img id="ico" src="@nic4.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                <p class="text-center text-dark">@Model.Value("descripcion4")</p>
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var nic5 = Model.Value<IPublishedContent>("img_nic5");
+                                        if (nic5 != null)
+                                        {
+                                            <img id="ico" src="@nic5.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                <p class="text-center text-dark">@Model.Value("descripcion5")</p>
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var nic6 = Model.Value<IPublishedContent>("img_nic6");
+                                        if (nic6 != null)
+                                        {
+                                            <img id="ico" src="@nic6.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                <p class="text-center text-dark">@Model.Value("descripcion6")</p>
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var nic7 = Model.Value<IPublishedContent>("img_nic7");
+                                        if (nic7 != null)
+                                        {
+                                            <img id="ico" src="@nic7.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                <p class="text-center text-dark">@Model.Value("descripcion7")</p>
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var nic8 = Model.Value<IPublishedContent>("img_nic8");
+                                        if (nic8 != null)
+                                        {
+                                            <img id="ico" src="@nic8.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                <p class="text-center text-dark">@Model.Value("descripcion8")</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<!-- Video -->
+<div class="container-fluid bg-gris">
+    <div class="container">
+        <h1 class="spiex-section-title">@Model.Value("titulovideo")</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 mx-auto">
+                @Model.Value("video1")
+            </div>
+        </div>
+    </div>
+    <br>
+<br>
+</div>
+
+
+<!-- Tratados Mapa -->
+ <div class="container-fluid pb-5">
+    <div class="container">
+        <h1 class="spiex-section-title">@Model.Value("titulomapa")</h1>
+    </div>
+    <div class="container">
+        <div class="row justify-space-between py-2">
+          <div class="mapa-li col-lg-4 ms-auto">
+            <div class="nav-wrapper position-relative">
+              <ul class="nav nav-pills nav-fill flex-column p-1 me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <li class="nav-item">
+                  <a class="nav-link active" id="v-pills-tlc-tab" data-bs-toggle="pill" href="#v-pills-tlc" role="tab" aria-controls="v-pills-tlc" aria-selected="true">@Model.Value("tituloTratado1")</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="v-pills-alba-tab" data-bs-toggle="pill" href="#v-pills-alba" role="tab" aria-controls="v-pills-alba" aria-selected="false">@Model.Value("tituloTratado2")</a>
+                </li>
+    
+                <li class="nav-item">
+                  <a class="nav-link" id="v-pills-tlm-tab" data-bs-toggle="pill" href="#v-pills-tlm" role="tab" aria-controls="v-pills-tlm" aria-selected="false">@Model.Value("tituloTratado3")</a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" id="v-pills-tra4-tab" data-bs-toggle="pill" href="#v-pills-tra4" role="tab" aria-controls="v-pills-tlm" aria-selected="false">@Model.Value("tituloTratado4")</a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" id="v-pills-tra5-tab" data-bs-toggle="pill" href="#v-pills-tra5" role="tab" aria-controls="v-pills-tlm" aria-selected="false">@Model.Value("tituloTratado5")</a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" id="v-pills-tra6-tab" data-bs-toggle="pill" href="#v-pills-tra6" role="tab" aria-controls="v-pills-tlm" aria-selected="false">@Model.Value("tituloTratado6")</a>
+                </li>
+                
+                
+                @{
+                     if(Model.HasValue("tituloTratado7")) {
+                     <li class="nav-item">
+                        <a class="nav-link" id="v-pills-tra7-tab" data-bs-toggle="pill" href="#v-pills-tra7" role="tab" aria-controls="v-pills-tlm" aria-selected="false">@Model.Value("tituloTratado7")</a>
+                    </li>
+                     
+                     }
+                
+                }
+                
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-8 me-auto my-auto text-start">
+            <div class="tab-content" id="v-pills-tabContent">
+              <div class="tab-pane fade show active" id="v-pills-tlc" role="tabpanel" aria-labelledby="v-pills-tlc-tab">
+                 @{
+                    var tlc = Model.Value<IPublishedContent>("tLC");
+                    if (tlc != null)
+                    {
+                        <img  src="@tlc.MediaUrl()" style="width: 100%; border-radius: 20px;" alt="" />
+                    }
+                }
+
+              </div>
+              <div class="tab-pane fade" id="v-pills-alba" role="tabpanel" aria-labelledby="v-pills-alba-tab">
+               @{
+                    var alba = Model.Value<IPublishedContent>("alba");
+                    if (alba != null)
+                    {
+                        <img  src="@alba.MediaUrl()" style="width: 100%; border-radius: 20px;" alt="" />
+                    }
+                }
+
+              </div>
+              <div class="tab-pane fade" id="v-pills-tlm" role="tabpanel" aria-labelledby="v-pills-tlm-tab">
+                @{
+                    var tlm= Model.Value<IPublishedContent>("tLM");
+                    if (tlm != null)
+                    {
+                        <img  src="@tlm.MediaUrl()" style="width: 100%; border-radius: 20px;" alt="" />
+                    }
+                }
+
+              </div>
+              
+              <div class="tab-pane fade" id="v-pills-tra4" role="tabpanel" aria-labelledby="v-pills-tra4-tab">
+                @{
+                    var tra4= Model.Value<IPublishedContent>("tratado4");
+                    if (tra4 != null)
+                    {
+                        <img  src="@tra4.MediaUrl()" style="width: 100%; border-radius: 20px;" alt="" />
+                    }
+                }
+
+              </div>
+              
+              <div class="tab-pane fade" id="v-pills-tra5" role="tabpanel" aria-labelledby="v-pills-tlm-tra5">
+                @{
+                    var tra5= Model.Value<IPublishedContent>("tratado5");
+                    if (tra5 != null)
+                    {
+                        <img  src="@tra5.MediaUrl()" style="width: 100%; border-radius: 20px;" alt="" />
+                    }
+                }
+
+              </div>
+              
+              <div class="tab-pane fade" id="v-pills-tra6" role="tabpanel" aria-labelledby="v-pills-tlm-tra6">
+                @{
+                    var tra6= Model.Value<IPublishedContent>("tratado6");
+                    if (tra6 != null)
+                    {
+                        <img  src="@tra6.MediaUrl()" style="width: 100%; border-radius: 20px;" alt="" />
+                    }
+                }
+
+              </div>
+              
+              <div class="tab-pane fade" id="v-pills-tra7" role="tabpanel" aria-labelledby="v-pills-tlm-tra7">
+                @{
+                    var tra7= Model.Value<IPublishedContent>("tratado7");
+                    if (tra7 != null)
+                    {
+                        <img  src="@tra7.MediaUrl()" style="width: 100%; border-radius: 20px;" alt="" />
+                    }
+                }
+
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+ </div>
+<br>
+
+<!-- Importaciones y Exportaciones -->
+<div class="container-fluid bg-gris d-none d-sm-block">
+    <div class="container">
+    @Model.Value("titulocomercio")
+</div>
+<div  class="container">
+    <div class="row">
+        @Model.Value("tituloexportacion")
+     </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-4 mb-5">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon d-flex justify-content-center">
+                    @{
+                        var usaexpo = Model.Value<IPublishedContent>("imgexportacion1");
+                        if (usaexpo != null)
+                        {
+                            <img id="paise" src="@usaexpo.MediaUrl()" alt="" />
+                        }
+                    }
+                </div>
+                @Model.Value("infoexportacion1")
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-5">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon d-flex justify-content-center">
+                    @{
+                        var centroexpo = Model.Value<IPublishedContent>("imgexportacion2");
+                        if (centroexpo != null)
+                        {
+                            <img id="paise" src="@centroexpo.MediaUrl()" alt="" />
+                        }
+                    }
+                </div>
+                @Model.Value("infoexportacion2")
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-5">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon d-flex justify-content-center">
+                    @{
+                        var mexiexpo = Model.Value<IPublishedContent>("imgexportacion3");
+                        if (mexiexpo != null)
+                        {
+                            <img id="paise" src="@mexiexpo.MediaUrl()" alt="" />
+                        }
+                    }
+                </div>
+                @Model.Value("infoexportacion3")
+            </div>
+        </div>
+        
+        <div class="col-sm-6 col-md-4 mb-5">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon d-flex justify-content-center">
+                    @{
+                        var ueexpo = Model.Value<IPublishedContent>("imgexportacion4");
+                        if (ueexpo != null)
+                        {
+                            <img id="paise" src="@ueexpo.MediaUrl()" alt="" />
+                        }
+                    }
+                </div>
+                @Model.Value("infoexportacion4")
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-5">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon d-flex justify-content-center">
+                    @{
+                        var x = Model.Value<IPublishedContent>("imgexportacion5");
+                        if (x != null)
+                        {
+                            <img id="paise" src="@x.MediaUrl()" alt="" />
+                        }
+                    }
+                </div>
+                @Model.Value("infoexportacion5")
+            </div>
+        </div>
+        
+        <div class="col-sm-6 col-md-4 mb-5">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon d-flex justify-content-center">
+                    @{
+                        var x6 = Model.Value<IPublishedContent>("imgexportacion6");
+                        if (x6 != null)
+                        {
+                            <img id="paise" src="@x6.MediaUrl()" alt="" />
+                        }
+                    }
+                </div>
+                @Model.Value("infoexportacion6")
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        @Model.Value("tituloimportacion")
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 col-md-4 mb-5">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon d-flex justify-content-center">
+                    @{
+                        var usaimpo = Model.Value<IPublishedContent>("imgimportacion1");
+                        if (usaimpo != null)
+                        {
+                            <img id="paise" src="@usaimpo.MediaUrl()" alt="" />
+                        }
+                    }
+                </div>
+                @Model.Value("infoimportacion1")
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-5">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon d-flex justify-content-center">
+                    @{
+                        var centroimpo = Model.Value<IPublishedContent>("imgimportacion2");
+                        if (centroimpo != null)
+                        {
+                            <img id="paise" src="@centroimpo.MediaUrl()" alt="" />
+                        }
+                    }
+                </div>
+                @Model.Value("infoimportacion2")
+            </div>
+        </div>
+
+        <div class="ccol-sm-6 col-md-4 mb-5">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon d-flex justify-content-center">
+                    @{
+                        var chinaimpo = Model.Value<IPublishedContent>("imgimportacion3");
+                        if (chinaimpo != null)
+                        {
+                            <img id="paise" src="@chinaimpo.MediaUrl()" alt="" />
+                        }
+                    }
+                </div>
+                @Model.Value("infoimportacion3")
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-5">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon d-flex justify-content-center">
+                    @{
+                        var mexiimpo = Model.Value<IPublishedContent>("imgimportacion4");
+                        if (mexiimpo != null)
+                        {
+                            <img id="paise" src="@mexiimpo.MediaUrl()" alt="" />
+                        }
+                    }
+                </div>
+                @Model.Value("infoimportacion4")
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-5">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon d-flex justify-content-center">
+                    @{
+                        var ueimpo = Model.Value<IPublishedContent>("imgimportacion5");
+                        if (ueimpo != null)
+                        {
+                            <img id="paise" src="@ueimpo.MediaUrl()" alt="" />
+                        }
+                    }
+                </div>
+                @Model.Value("infoimportacion5")
+            </div>
+        </div>
+        
+        <div class="col-sm-6 col-md-4 mb-5">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon d-flex justify-content-center">
+                    @{
+                        var ueimpo1 = Model.Value<IPublishedContent>("imgimportacion6");
+                        if (ueimpo1 != null)
+                        {
+                            <img id="paise" src="@ueimpo1.MediaUrl()" alt="" />
+                        }
+                    }
+                </div>
+                @Model.Value("infoimportacion6")
+            </div>
+        </div>
+
+     </div>
+</div>
+</div>
+
+
+<div class="container-fluid bg-gris d-block d-sm-none">
+    <div class="container">
+        <h1 class="spiex-section-title">@Model.Value("titulocomercio")</h1>
+    </div>
+<div  class="container">
+    <div class="row">
+        @Model.Value("tituloexportacion")
+     </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-4 mb-5">
+            <div class="row row-cols-auto">
+                    <div class="owl-two owl-carousel owl-theme ">
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var usaexpo1 = Model.Value<IPublishedContent>("imgexportacion1");
+                                        if (usaexpo1 != null)
+                                        {
+                                            <img id="paise" src="@usaexpo1.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                    @Model.Value("infoexportacion1")
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var centroexpo1 = Model.Value<IPublishedContent>("imgexportacion2");
+                                        if (centroexpo1 != null)
+                                        {
+                                            <img id="paise" src="@centroexpo1.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                    @Model.Value("infoexportacion2")
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var mexiexpo1 = Model.Value<IPublishedContent>("imgexportacion3");
+                                        if (mexiexpo1 != null)
+                                        {
+                                            <img id="paise" src="@mexiexpo1.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                    @Model.Value("infoexportacion3")
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var ueexpo1 = Model.Value<IPublishedContent>("imgexportacion4");
+                                        if (ueexpo1 != null)
+                                        {
+                                            <img id="paise" src="@ueexpo1.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                    @Model.Value("infoexportacion4")
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var x1 = Model.Value<IPublishedContent>("imgexportacion5");
+                                        if (x1 != null)
+                                        {
+                                            <img id="paise" src="@x1.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                        @Model.Value("infoexportacion5")
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var x61 = Model.Value<IPublishedContent>("imgexportacion6");
+                                        if (x61 != null)
+                                        {
+                                            <img id="paise" src="@x61.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                    @Model.Value("infoexportacion6")
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+        </div>
+
+        
+    </div>
+
+    <div class="row">
+        @Model.Value("tituloimportacion")
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 col-md-4 mb-5">
+            <div class="row row-cols-auto">
+                    <div class="owl-two owl-carousel owl-theme ">
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var usaimpo1 = Model.Value<IPublishedContent>("imgimportacion1");
+                                        if (usaimpo1 != null)
+                                        {
+                                            <img id="paise" src="@usaimpo1.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                    @Model.Value("infoimportacion1")
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var centroimpo1 = Model.Value<IPublishedContent>("imgimportacion2");
+                                        if (centroimpo1 != null)
+                                        {
+                                            <img id="paise" src="@centroimpo1.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                    @Model.Value("infoimportacion2")
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var chinaimpo1 = Model.Value<IPublishedContent>("imgimportacion3");
+                                        if (chinaimpo1 != null)
+                                        {
+                                            <img id="paise" src="@chinaimpo1.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                    @Model.Value("infoimportacion3")
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var mexiimpo1= Model.Value<IPublishedContent>("imgimportacion4");
+                                        if (mexiimpo1 != null)
+                                        {
+                                            <img id="paise" src="@mexiimpo1.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                    @Model.Value("infoimportacion4")
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var ueimpo2 = Model.Value<IPublishedContent>("imgimportacion5");
+                                        if (ueimpo2 != null)
+                                        {
+                                            <img id="paise" src="@ueimpo2.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                        @Model.Value("infoimportacion5")
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon d-flex justify-content-center">
+                                    @{
+                                        var ueimpo3 = Model.Value<IPublishedContent>("imgimportacion6");
+                                        if (ueimpo3 != null)
+                                        {
+                                            <img id="paise" src="@ueimpo3.MediaUrl()" alt="" />
+                                        }
+                                    }
+                                </div>
+                                    @Model.Value("infoimportacion6")
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+        </div>
+
+        
+    </div>
+</div>
+</div>
+
+
+
+<!--Grafica IED-->
+<div class="container">
+@Model.Value("titulografica")
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="d-flex justify-content-center" style="position: relative; height: 45vh;">
+
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+
+<!--Grafica Exportaciones-->
+@{
+    if(Model.HasValue("tituloMapa2")){
+    <div class="container">
+        <h1 class="spiex-section-title py-5">@Model.Value("tituloMapa2")</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="d-flex justify-content-center" style="position: relative; height: 45vh;">
+    
+                    <canvas id="grafica"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    }
+    else{
+    
+    }
+}
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.1.1/chart.umd.js"></script>
+
+
+<script>
+            const names = []
+		   const numbers = []
+		   
+            const reten = []
+            const retenNum = []
+
+            const pib = []
+
+
+
+    if(@Model.Value("info1") != " " & @Model.Value("label1") != " ") {
+                numbers.push(@Model.Value("info1"));
+		        names.push(@Model.Value("label1"));
+		    }
+		    if(@Model.Value("info2") != " " & @Model.Value("label2") != " "){
+		    	numbers.push(@Model.Value("info2"));
+		        names.push(@Model.Value("label2"));
+		    }
+		    if(@Model.Value("info3") != " " & @Model.Value("label3") != " "){
+		    	numbers.push(@Model.Value("info3"));
+		        names.push(@Model.Value("label3"));
+		    }
+		    if(@Model.Value("info4") != " " & @Model.Value("label4") != " "){
+		    	numbers.push(@Model.Value("info4"));
+		        names.push(@Model.Value("label4"));
+		    }
+		    if(@Model.Value("info5") != " " & @Model.Value("label5") != " "){
+		    	numbers.push(@Model.Value("info5"));
+		        names.push(@Model.Value("label5"));
+		    }
+		    if(@Model.Value("info6") != " " & @Model.Value("label6") != " "){
+		    	numbers.push(@Model.Value("info6"));
+		        names.push(@Model.Value("label6"));
+		    }
+		    if(@Model.Value("info7") != " " & @Model.Value("label7") != " "){
+		    	numbers.push(@Model.Value("info7"));
+		        names.push(@Model.Value("label7"));
+		    }
+		    if(@Model.Value("info8") != " " & @Model.Value("label8") != " "){
+		    	numbers.push(@Model.Value("info8"));
+		        names.push(@Model.Value("label8"));
+		    }
+		    if(@Model.Value("info9") != " " & @Model.Value("label9") != " "){
+		    	numbers.push(@Model.Value("info9"));
+		        names.push(@Model.Value("label9"));
+		    }
+		    if(@Model.Value("info10") != " " & @Model.Value("label10") != " "){
+		    	numbers.push(@Model.Value("info10"));
+		        names.push(@Model.Value("label10"));
+		    }
+		    if(@Model.Value("info11") != " " & @Model.Value("label11") != " "){
+		    	numbers.push(@Model.Value("info11"));
+		        names.push(@Model.Value("label11"));
+		    }
+		    
+		    if(@Model.Value("info12") == 1 & @Model.Value("label12") == 1){
+		    	retenNum.push(@Model.Value("info12"));
+		        reten.push(@Model.Value("label12"));
+		    } else {
+		        numbers.push(@Model.Value("info12"));
+		        names.push(@Model.Value("label12"));
+		    }
+
+             if(@Model.Value("info13") == 1 & @Model.Value("label13") == 1){
+		    	retenNum.push(@Model.Value("info13"));
+		        reten.push(@Model.Value("label13"));
+		    } else {
+		        numbers.push(@Model.Value("info13"));
+		        names.push(@Model.Value("label13"));
+		    }
+
+             if(@Model.Value("info14") == 1 & @Model.Value("label14") == 1){
+		    	retenNum.push(@Model.Value("info14"));
+		        reten.push(@Model.Value("label14"));
+		    } else {
+		        numbers.push(@Model.Value("info14"));
+		        names.push(@Model.Value("label14"));
+		    }
+
+             if(@Model.Value("info15") == 1 & @Model.Value("label15") == 1){
+		    	retenNum.push(@Model.Value("info15"));
+		        reten.push(@Model.Value("label15"));
+		    } else {
+		        numbers.push(@Model.Value("info15"));
+		        names.push(@Model.Value("label15"));
+		    }
+		    
+		   
+
+           if(@Model.Value("info_1") != " ")  {
+                pib.push(@Model.Value("info_1"));
+		    }
+		    if(@Model.Value("info_2") != " "){
+		    	pib.push(@Model.Value("info_2"));
+		    }
+		    if(@Model.Value("info_3") != " "){
+		    	pib.push(@Model.Value("info_3"));
+		    }
+		    if(@Model.Value("info_4") != " "){
+		    	pib.push(@Model.Value("info_4"));
+		    }
+		    if(@Model.Value("info_5") != " "){
+		    	pib.push(@Model.Value("info_5"));
+		    }
+		    if(@Model.Value("info_6") != " "){
+		    	pib.push(@Model.Value("info_6"));
+		    }
+		    if(@Model.Value("info_7") != " "){
+		    	pib.push(@Model.Value("info_7"));
+		    }
+		    if(@Model.Value("info_8") != " "){
+		    	pib.push(@Model.Value("info_8"));
+		    }
+		    if(@Model.Value("info_9") != " "){
+		    	pib.push(@Model.Value("info_9"));
+		    }
+		    if(@Model.Value("info_10") != " "){
+		    	pib.push(@Model.Value("info_10"));
+		    }
+		    if(@Model.Value("info_11") != " "){
+		    	pib.push(@Model.Value("info_11"));
+		    }
+		    
+		    if(@Model.Value("info_12") == 1 ){
+		    	retenNum.push(@Model.Value("info_12"));
+		    } else {
+		        pib.push(@Model.Value("info_12"));
+		    }
+
+             if(@Model.Value("info_13") == 1){
+		    	retenNum.push(@Model.Value("info_13"));
+		    } else {
+		        pib.push(@Model.Value("info_13"));
+		    }
+
+             if(@Model.Value("info_14") == 1){
+		    	retenNum.push(@Model.Value("info_14"));
+		    } else {
+		        pib.push(@Model.Value("info_14"));
+		    }
+
+             if(@Model.Value("info_15") == 1 ){
+		    	retenNum.push(@Model.Value("info_15"));
+		    } else {
+		        pib.push(@Model.Value("info_15"));
+		    }
+		    
+		    
+            var descripcion1 = '@Model.Value("titulolabel1")'
+            var descripcion2 = '@Model.Value("titulolabel2")'
+            
+    
+
+
+            const na =[@Model.Value("label1"), @Model.Value("label2"), @Model.Value("label3"), @Model.Value("label4"), @Model.Value("label5"), @Model.Value("label6"), @Model.Value("label7"), @Model.Value("label8"), @Model.Value("label9"), @Model.Value("label10"), @Model.Value("label11"), @Model.Value("label12"), @Model.Value("label13"), @Model.Value("label14"), @Model.Value("label15")];
+		    const test = [@Model.Value("info1"), @Model.Value("info2"), @Model.Value("info3"), @Model.Value("info4"), @Model.Value("info5"), @Model.Value("info6"), @Model.Value("info7"), @Model.Value("info8"), @Model.Value("info9"), @Model.Value("info10"), @Model.Value("info11"), @Model.Value("info12"), @Model.Value("info13"), @Model.Value("info14"), @Model.Value("info15")];
+            const x = [@Model.Value("info_1"), @Model.Value("info_2"), @Model.Value("info_3"), @Model.Value("info_4"), @Model.Value("info_5"), @Model.Value("info_6"), @Model.Value("info_7"), @Model.Value("info_8"), @Model.Value("info_9"), @Model.Value("info_10"), @Model.Value("info_11"), @Model.Value("info_12"), @Model.Value("info_13"), @Model.Value("info_14"), @Model.Value("info_15")]
+		   
+            const data = {
+            labels: names,
+            datasets: [{
+                label: descripcion2,
+                data: numbers,
+                backgroundColor: [
+                    'rgba(16, 112, 243, 1 )'
+                ],
+                borderColor: [
+                    'rgba(16, 112, 243, 1 )'
+                ],
+                borderWidth: 1,
+                yAxisID: 'y',
+                order: 2
+            }, {
+                label: descripcion1,
+                data: pib,
+                backgroundColor: [
+                    'rgba(69, 135, 95, 1)'
+                ],
+                borderColor: [
+                    'rgba(69, 135, 95, 1)'
+                ],
+                type: 'line',
+                yAxisID: 'quantity',
+                order: 1
+            }]
+        };
+        
+        // config 
+        const config = {
+            type: 'bar',
+            data,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        type: 'linear',
+                        position: 'left'
+                    },
+                    quantity: {
+                        beginAtZero: true,
+                        type: 'linear',
+                        position: 'right',
+                        display: false
+        
+                    }
+                }
+            }
+        };
+        
+        
+        // render init block
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+        
+
+</script>
+
+
+
+<script>
+            const names1 = []
+		   const numbers2 = []
+		   
+            const reten2 = []
+            const retenNum2 = []
+
+            const pib2 = []
+
+
+
+    if(@Model.Value("infos1") == 0 & @Model.Value("labels1") == 0){
+		    	retenNum2.push(@Model.Value("infos1"));
+		        reten2.push(@Model.Value("labels1"));
+		    } else {
+		        numbers2.push(@Model.Value("infos1"));
+		        names1.push(@Model.Value("labels1"));
+		    }
+		    
+		    if(@Model.Value("infos2") == 0 & @Model.Value("labels2") == 0){
+		    	retenNum2.push(@Model.Value("infos2"));
+		        reten2.push(@Model.Value("labels2"));
+		    } else {
+		        numbers2.push(@Model.Value("infos2"));
+		        names1.push(@Model.Value("labels2"));
+		    }
+		    
+		    if(@Model.Value("infos3") == 0 & @Model.Value("labels3") == 0){
+		    	retenNum2.push(@Model.Value("infos3"));
+		        reten2.push(@Model.Value("labels3"));
+		    } else {
+		        numbers2.push(@Model.Value("infos3"));
+		        names1.push(@Model.Value("labels3"));
+		    }
+		    
+		    if(@Model.Value("infos4") == 0 & @Model.Value("labels4") == 0){
+		    	retenNum2.push(@Model.Value("infos4"));
+		        reten2.push(@Model.Value("labels4"));
+		    } else {
+		        numbers2.push(@Model.Value("infos4"));
+		        names1.push(@Model.Value("labels4"));
+		    }
+		    
+		    if(@Model.Value("infos5") == 0 & @Model.Value("labels5") == 0){
+		    	retenNum2.push(@Model.Value("infos5"));
+		        reten2.push(@Model.Value("labels5"));
+		    } else {
+		        numbers2.push(@Model.Value("infos5"));
+		        names1.push(@Model.Value("labels5"));
+		    }
+		    
+		    if(@Model.Value("infos6") == 0 & @Model.Value("labels6") == 0){
+		    	retenNum2.push(@Model.Value("infos6"));
+		        reten2.push(@Model.Value("labels6"));
+		    } else {
+		        numbers2.push(@Model.Value("infos6"));
+		        names1.push(@Model.Value("labels6"));
+		    }
+		    
+		    if(@Model.Value("infos7") == 0 & @Model.Value("labels7") == 0){
+		    	retenNum2.push(@Model.Value("infos7"));
+		        reten2.push(@Model.Value("labels7"));
+		    } else {
+		        numbers2.push(@Model.Value("infos7"));
+		        names1.push(@Model.Value("labels7"));
+		    }
+		    
+		    if(@Model.Value("infos8") == 0 & @Model.Value("labels8") == 0){
+		    	retenNum2.push(@Model.Value("infos8"));
+		        reten2.push(@Model.Value("labels8"));
+		    } else {
+		        numbers2.push(@Model.Value("infos8"));
+		        names1.push(@Model.Value("labels8"));
+		    }
+		    
+		    if(@Model.Value("infos9") == 0 & @Model.Value("labels9") == 0){
+		    	retenNum2.push(@Model.Value("infos9"));
+		        reten2.push(@Model.Value("labels9"));
+		    } else {
+		        numbers2.push(@Model.Value("infos9"));
+		        names1.push(@Model.Value("labels9"));
+		    }
+		    
+		    if(@Model.Value("infos10") == 0 & @Model.Value("labels10") == 0){
+		    	retenNum2.push(@Model.Value("infos10"));
+		        reten2.push(@Model.Value("labels10"));
+		    } else {
+		        numbers2.push(@Model.Value("infos10"));
+		        names1.push(@Model.Value("labels10"));
+		    }
+		    
+		    if(@Model.Value("infos11") == 0 & @Model.Value("labels11") == 0){
+		    	retenNum2.push(@Model.Value("infos11"));
+		        reten2.push(@Model.Value("labels11"));
+		    } else {
+		        numbers2.push(@Model.Value("infos11"));
+		        names1.push(@Model.Value("labels11"));
+		    }
+		    
+		    if(@Model.Value("infos12") == 0 & @Model.Value("labels12") == 0){
+		    	retenNum2.push(@Model.Value("infos12"));
+		        reten2.push(@Model.Value("labels12"));
+		    } else {
+		        numbers2.push(@Model.Value("infos12"));
+		        names1.push(@Model.Value("labels12"));
+		    }
+
+             if(@Model.Value("infos13") == 0 & @Model.Value("labels13") == 0){
+		    	retenNum2.push(@Model.Value("infos13"));
+		        reten2.push(@Model.Value("labels13"));
+		    } else {
+		        numbers2.push(@Model.Value("infos13"));
+		        names1.push(@Model.Value("labels13"));
+		    }
+
+             if(@Model.Value("infos14") == 0 & @Model.Value("labels14") == 0){
+		    	retenNum2.push(@Model.Value("infos14"));
+		        reten2.push(@Model.Value("labels14"));
+		    } else {
+		        numbers2.push(@Model.Value("infos14"));
+		        names1.push(@Model.Value("labels14"));
+		    }
+
+             if(@Model.Value("infos15") == 0 & @Model.Value("labels15") == 0){
+		    	retenNum2.push(@Model.Value("infos15"));
+		        reten2.push(@Model.Value("labels15"));
+		    } else {
+		        numbers2.push(@Model.Value("infos15"));
+		        names1.push(@Model.Value("labels15"));
+		    }
+		    
+		    if(@Model.Value("infos16") == 0 & @Model.Value("labels16") == 0){
+		    	retenNum2.push(@Model.Value("infos16"));
+		        reten2.push(@Model.Value("labels16"));
+		    } else {
+		        numbers2.push(@Model.Value("infos16"));
+		        names1.push(@Model.Value("labels16"));
+		    }
+		    
+		   
+
+           
+		    if(@Model.Value("infos_1") == 0 ){
+		    	retenNum2.push(@Model.Value("infos_1"));
+		    } else {
+		        pib2.push(@Model.Value("infos_1"));
+		    }
+		    
+		    if(@Model.Value("infos_2") == 0 ){
+		    	retenNum2.push(@Model.Value("infos_2"));
+		    } else {
+		        pib2.push(@Model.Value("infos_2"));
+		    }
+		    
+		    if(@Model.Value("infos_3") == 0 ){
+		    	retenNum2.push(@Model.Value("infos_3"));
+		    } else {
+		        pib2.push(@Model.Value("infos_3"));
+		    }
+		    
+		    if(@Model.Value("infos_4") == 0 ){
+		    	retenNum2.push(@Model.Value("infos_4"));
+		    } else {
+		        pib2.push(@Model.Value("infos_4"));
+		    }
+		    
+		    if(@Model.Value("infos_5") == 0 ){
+		    	retenNum2.push(@Model.Value("infos_5"));
+		    } else {
+		        pib2.push(@Model.Value("infos_5"));
+		    }
+		    
+		    if(@Model.Value("infos_6") == 0 ){
+		    	retenNum2.push(@Model.Value("infos_6"));
+		    } else {
+		        pib2.push(@Model.Value("infos_6"));
+		    }
+		    
+		    if(@Model.Value("infos_7") == 0 ){
+		    	retenNum2.push(@Model.Value("infos_7"));
+		    } else {
+		        pib2.push(@Model.Value("infos_7"));
+		    }
+		    
+		    if(@Model.Value("infos_8") == 0 ){
+		    	retenNum2.push(@Model.Value("infos_8"));
+		    } else {
+		        pib2.push(@Model.Value("infos_8"));
+		    }
+		    
+		    if(@Model.Value("infos_9") == 0 ){
+		    	retenNum2.push(@Model.Value("infos_9"));
+		    } else {
+		        pib2.push(@Model.Value("infos_9"));
+		    }
+		    
+		    if(@Model.Value("infos_10") == 0 ){
+		    	retenNum2.push(@Model.Value("infos_10"));
+		    } else {
+		        pib2.push(@Model.Value("infos_10"));
+		    }
+		    
+		    if(@Model.Value("infos_11") == 0 ){
+		    	retenNum2.push(@Model.Value("infos_11"));
+		    } else {
+		        pib2.push(@Model.Value("infos_11"));
+		    }
+		    
+		    if(@Model.Value("infos_12") == 0 ){
+		    	retenNum2.push(@Model.Value("infos_12"));
+		    } else {
+		        pib2.push(@Model.Value("infos_12"));
+		    }
+		    
+		    if(@Model.Value("infos_13") == 0 ){
+		    	retenNum2.push(@Model.Value("infos_13"));
+		    } else {
+		        pib2.push(@Model.Value("infos_13"));
+		    }
+		    
+		    if(@Model.Value("infos_14") == 0 ){
+		    	retenNum2.push(@Model.Value("infos_14"));
+		    } else {
+		        pib2.push(@Model.Value("infos_14"));
+		    }
+		    
+		    if(@Model.Value("infos_15") == 0 ){
+		    	retenNum2.push(@Model.Value("infos_15"));
+		    } else {
+		        pib2.push(@Model.Value("infos_15"));
+		    }
+		    
+		    if(@Model.Value("infos_16") == 0 ){
+		    	retenNum2.push(@Model.Value("infos_16"));
+		    } else {
+		        pib2.push(@Model.Value("infos_16"));
+		    }
+		    
+		   
+		    
+
+            var descripcion4 = '@Model.Value("titulolabel3")'
+            var descripcion5 = '@Model.Value("titulolabel4")'
+    
+
+
+            const na1 =[@Model.Value("labels1"), @Model.Value("labels2"), @Model.Value("labels3"), @Model.Value("labels4"), @Model.Value("labels5"), @Model.Value("labels6"), @Model.Value("labels7"), @Model.Value("labels8"), @Model.Value("labels9"), @Model.Value("labels10"), @Model.Value("labels11"), @Model.Value("labels12"), @Model.Value("labels13"), @Model.Value("labels14"), @Model.Value("labels15")];
+		    const test1 = [@Model.Value("infos1"), @Model.Value("infos2"), @Model.Value("infos3"), @Model.Value("infos4"), @Model.Value("infos5"), @Model.Value("infos6"), @Model.Value("infos7"), @Model.Value("infos8"), @Model.Value("infos9"), @Model.Value("infos10"), @Model.Value("infos11"), @Model.Value("infos12"), @Model.Value("infos13"), @Model.Value("infos14"), @Model.Value("infos15")];
+            const y = [@Model.Value("infos_1"), @Model.Value("infos_2"), @Model.Value("infos_3"), @Model.Value("infos_4"), @Model.Value("infos_5"), @Model.Value("infos_6"), @Model.Value("infos_7"), @Model.Value("infos_8"), @Model.Value("infos_9"), @Model.Value("infos_10"), @Model.Value("infos_11"), @Model.Value("infos_12"), @Model.Value("infos_13"), @Model.Value("infos_14"), @Model.Value("infos_15")]
+		   
+           
+var ctx = document.getElementById('grafica').getContext('2d');
+var Grafica = new Chart(ctx, {
+    type: 'bar',
+    data: {
+    labels: names1,
+    datasets: [{
+        
+label: descripcion4,
+type: 'line',
+data: numbers2,
+backgroundColor: 'rgba(69, 135, 95, 1 )',
+borderColor: 'rgba(69, 135, 95, 1)',
+borderWidth: 2,
+fill: false,
+// yAxisID: 'y-axis-2'
+    }, {
+        label: descripcion5,
+        data: pib2,
+        backgroundColor: 'rgba(16, 112, 243, 1 )',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1,
+        yAxisID: 'y-axis-1'
+    }]
+    },
+    options: {
+    scales: {
+        y: {
+        beginAtZero: true,
+        
+        // min: 0,
+        // max: 50,
+        display: false
+        },
+        y2 : {
+            // id: 'y-axis-2',
+            // min: 0,
+            // max: 10,
+            display: false
+        }
+    }
+    }
+});
+
+        
+
+</script>

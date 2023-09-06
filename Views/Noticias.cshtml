@@ -1,0 +1,61 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "Master.cshtml";
+}
+
+@await Html.PartialAsync("_Header")
+
+
+<!-- Noticias -->
+<div class="container px-5">
+    <div class='row'>
+        <div class="col-sm-12">
+            <h1 id="tides" class="display-6 text-center text-sm-start my-5">@Model.Value("titulonews")</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        @{
+        	var Noticias = Umbraco.Content(Guid.Parse("d38c280c-5d26-4154-949f-e5314a9a64dc"))
+            .ChildrenOfType("noticia")
+            .Where(x => x.IsVisible())
+            .OrderByDescending(x => x.UpdateDate)
+            .Take(21);
+        }
+
+        @foreach (var item in Noticias)
+        {
+            var img = item.Value<IPublishedContent>("imgbanner");
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <div id="carusel" class="card border-0 shadow">
+                    <img class="img-fluid" src="@img.Url()" alt="Noticia" />
+
+                    <div class="card-body">
+                         @{
+                            if(item.Value("titulo", fallback: Fallback.ToAncestors).ToString().Length > 60){
+                                <p class="spiex-p-lead">@item.Value("titulo", fallback: Fallback.ToAncestors).ToString().Substring(0, 60)...</p>
+                            }
+                            else
+                            {
+                                <p class="spiex-p-lead">@item.Value("titulo", fallback: Fallback.ToAncestors).ToString()</p>
+                            }
+                        }
+                        @{
+                            if(item.Value("descripcion", fallback: Fallback.ToAncestors).ToString().Length > 60){
+                                <p class="descripcion">@item.Value("descripcion", fallback: Fallback.ToAncestors).ToString().Substring(0, 60)...</p>
+                            }
+                            else
+                            {
+                                <p class="descripcion">@item.Value("descripcion", fallback: Fallback.ToAncestors).ToString()</p>
+                            }
+                        }
+                        <a href="@item.Url()" class="btn-spiex-third mt-3">@Model.Value("vernoticias") &#187;</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<br />
