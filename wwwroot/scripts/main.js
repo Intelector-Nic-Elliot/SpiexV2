@@ -51,7 +51,7 @@ $('.owl-news').owlCarousel({
                 items: 1
             },
             768: {
-                items: 1
+                items: 2
             },
             1000: {
                 items: 3
@@ -116,7 +116,7 @@ $('.owl-four').owlCarousel({
             items:1
         },
         768:{
-            items:1
+            items:2
         },
         1000:{
             items:3
@@ -144,6 +144,21 @@ $('.owl-four').owlCarousel({
             }
         }
     })
+
+
+document.addEventListener("keyup", e => {
+
+    if (e.target.matches("#buscador")) {
+
+        document.querySelectorAll(".documento").forEach(libro => {
+
+            libro.textContent.toLowerCase().includes(e.target.value.toLowerCase())
+                ? libro.classList.remove("filtro")
+                : libro.classList.add("filtro")
+        })
+
+    }
+})
 
 
 

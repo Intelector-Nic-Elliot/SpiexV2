@@ -1,6 +1,6 @@
 ﻿@model UmbracoProject1.Models.RequestModel
 <style>
-    #infoModals .modal-content{
+    #infoModal .modal-content{
         border-radius:20px;
         border:none;
     }
@@ -39,9 +39,9 @@
 
 
         <div class="input-group input-group-outline mb-3">
-            @Html.LabelFor(x => x.Job, new { @class="form-label spiex-p-lead text-dark"})
-            <input class="form-control b-10" asp-for="@Model.Job">
-            <small class="form-text text-muted mb-1 mt-0"><span asp-validation-for="@Model.Job" class="text-danger"></span></small>
+            @Html.LabelFor(x => x.Position, new { @class="form-label spiex-p-lead text-dark"})
+            <input class="form-control b-10" asp-for="@Model.Position">
+            <small class="form-text text-muted mb-1 mt-0"><span asp-validation-for="@Model.Position" class="text-danger"></span></small>
         </div>
 
 

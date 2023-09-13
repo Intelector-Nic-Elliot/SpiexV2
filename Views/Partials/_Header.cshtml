@@ -27,22 +27,22 @@
                         @if (Model.Url().ToString().ToLower().Contains("/es/"))
                         {
                         <li class="nav-item">
-                            <a id="na" class="nav-link " aria-current="page" href="/es/inicio">Inicio</a>
+                            <a  class="nav-link " aria-current="page" href="/es/inicio">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a id="na" class="nav-link " aria-current="page" href="/es/por-que-nicaragua">¿Por qué Nicaragua?</a>
+                            <a  class="nav-link " aria-current="page" href="/es/por-que-nicaragua">¿Por qué Nicaragua?</a>
                         </li>
                         <li class="nav-item">
-                            <a id="na" class="nav-link " aria-current="page" href="/es/sectores">Sectores</a>
+                            <a  class="nav-link " aria-current="page" href="/es/sectores">Sectores</a>
                         </li>
                         <li class="nav-item">
-                            <a id="na" class="nav-link " aria-current="page" href="/es/servicios">Servicios</a>
+                            <a  class="nav-link " aria-current="page" href="/es/servicios">Servicios</a>
                         </li>
                          <li class="nav-item">
-                            <a id="na" class="nav-link " aria-current="page" href="/es/recursos">Recursos</a>
+                            <a  class="nav-link " aria-current="page" href="/es/recursos">Recursos</a>
                         </li>
                         <li class="nav-item">
-                            <a id="na" class="nav-link " aria-current="page" href="/es/contacto">Contacto</a>
+                            <a  class="nav-link " aria-current="page" href="/es/contacto">Contacto</a>
                         </li>
                         }
 
@@ -50,22 +50,22 @@
                         @if (Model.Url().ToString().ToLower().Contains("/en-us/"))
                         {
                         <li class="nav-item">
-                            <a id="na" class="nav-link " aria-current="page" href="/en-us/inicio">Home</a>
+                            <a class="nav-link " aria-current="page" href="/en-us/inicio">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a id="na" class="nav-link " aria-current="page" href="/en-us/por-que-nicaragua">Why Nicaragua?</a>
+                            <a class="nav-link " aria-current="page" href="/en-us/por-que-nicaragua">Why Nicaragua?</a>
                         </li>
                         <li class="nav-item">
-                            <a id="na" class="nav-link " aria-current="page" href="/en-us/sectores">Sectors</a>
+                            <a class="nav-link " aria-current="page" href="/en-us/sectores">Sectors</a>
                         </li>
                         <li class="nav-item">
-                            <a id="na" class="nav-link " aria-current="page" href="/en-us/servicios">Services</a>
+                            <a class="nav-link " aria-current="page" href="/en-us/servicios">Services</a>
                         </li>
                          <li class="nav-item">
-                            <a id="na" class="nav-link " aria-current="page" href="/en-us/recursos">Resources</a>
+                            <a class="nav-link " aria-current="page" href="/en-us/recursos">Resources</a>
                         </li>
                         <li class="nav-item">
-                            <a id="na" class="nav-link " aria-current="page" href="/en-us/contacto">Contact Us</a>
+                            <a class="nav-link " aria-current="page" href="/en-us/contacto">Contact Us</a>
                         </li>
                         }
                         <div class="dropdown">
@@ -109,22 +109,11 @@
                         <h2 class="spiex-subtitle text-white">@Model.Value("subtitulo", fallback: Fallback.ToAncestors).ToString()</h2>
                     }
                 }
-                
+        
                 <!-- Button trigger modal -->
                 <button type="button" class="btn-spiex m-0" data-bs-toggle="modal" data-bs-target="#infoModal">
                     @Model.Value("btnmodal")
                 </button>
-                
-                @{
-                    if(Model.HasValue("enlace") & Model.HasValue("texto")){
-                        <a type="button" href="@Model.Value("enlace")" class="btn-spiex">
-                            @Model.Value("texto")
-                        </a>
-                    }
-                    else{
-                        
-                    }
-                }
             </div>
             </div>
         </div>
@@ -135,7 +124,7 @@
                     <div class="d-none d-sm-block col-sm-12 col-md-11">
                         <div class="row">
                             <div class="d-flex justify-content-end align-items-center contenedor-border col-4 p-0">
-                            <img src="/media/lfhpqlqi/logo-blanco-cropped.png" height=40px style="padding-right:25px;">
+                            <img src="/media/lfhpqlqi/logo-blanco-cropped.png" height=40px style="padding-right:25px;" alt="Logo de la secretaria de promociones e inversiones" >
                             </div>
                             <div class="col-8 d-flex align-items-center">
                                @if (Model.Url().ToString().ToLower().Contains("/es/"))
@@ -144,7 +133,7 @@
                                 }
                                 @if (Model.Url().ToString().ToLower().Contains("/en-us/"))
                                 {
-                                    <p class="spiex-lead text-white" style="padding-left:10px; line-height:1.2;">Investment and Export Promotion Secretary</p>
+                                    <p class="spiex-lead text-white" style="padding-left:10px; line-height:1.2;">Investment Promotion and Export Office</p>
                                 }
                             </div>
                         </div>

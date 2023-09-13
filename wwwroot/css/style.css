@@ -35,6 +35,14 @@
     margin:0;
 }
 
+
+.spiex-section-title-two {
+    font-size:2rem;
+    color: var(--spiex-c-negro);
+    padding-top: 2rem;
+    margin:0;
+}
+
 .spiex-lead{
     font-size:1.4rem;
     color: var(--spiex-c-negro);
@@ -595,6 +603,13 @@ border-radius:100px 0px 0px 0px;
         font-weight: bold;
         text-align: center;
     }
+    
+    .text-sector-blue-two {
+        color: var(--spiex-cp-azul);
+        font-weight: bold;
+        text-align: center;
+        padding-top: 1rem;
+    }
 
     .sectores-iconos {
         padding-left: 5rem;
@@ -698,6 +713,9 @@ border-radius:100px 0px 0px 0px;
         border-radius: 50%;
         background: #173558;
     }*/
+    
+    
+ 
 
 .icon-sector {
     color: white;
@@ -823,17 +841,47 @@ border-radius:100px 0px 0px 0px;
 
     @media only screen and (max-width:768px) {
         .contact-info {
+            border-radius: 0px 20px 20px 0px;
+            padding: 1rem;
+        }
+
+        .contact-form {
+            border-radius: 20px 0px 0px 20px;
+            padding: 1rem;
+        }
+    }
+    
+    
+    @media only screen and (min-width: 270px) and (max-width: 741px) { 
+        .contact-info {
             border-radius: 0px 0px 20px 20px;
             padding: 1rem;
         }
 
         .contact-form {
-            border-radius: 20px 20px 0px 0px;
+            border-radius: 20px 20px 0px 00px;
             padding: 1rem;
         }
+        
     }
 
+    
+    
+
     /* Servicios */
+    .iconserv{
+        width: 60px;
+        height: 60px;
+        border-radius: 0.5rem;
+    }
+    
+    .iconser{
+        width: 55px;
+    }
+    
+    .etapa {
+        height: 500px;
+    }
     
     /* Por que Nicaragua */
 

@@ -44,7 +44,7 @@ namespace UmbracoProject1.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Crear([Bind("name1", "lastname", "company", "job", "email", "phone", "message")]RequestModel model)
+        public IActionResult Crear(RequestModel model)
         {
             var cs = Services.ContentService;
             var pId = new Guid("5933c3e3-ad04-40cc-b1ef-6540c0a61df4"); //5933c3e3-ad04-40cc-b1ef-6540c0a61df4
@@ -52,7 +52,7 @@ namespace UmbracoProject1.Controllers
             solicitud.SetValue("name1", model.Names);
             solicitud.SetValue("lastname", model.LastName);
             solicitud.SetValue("company", model.Company);
-            solicitud.SetValue("job", model.Job);
+            solicitud.SetValue("position", model.Position);
             solicitud.SetValue("email", model.Email);
             solicitud.SetValue("phone", model.Phone);
             solicitud.SetValue("message", model.Message);

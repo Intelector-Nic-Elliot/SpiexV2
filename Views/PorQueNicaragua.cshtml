@@ -292,29 +292,54 @@
           <div class="mapa-li col-lg-4 ms-auto">
             <div class="nav-wrapper position-relative">
               <ul class="nav nav-pills nav-fill flex-column p-1 me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                 @{
+                     if(Model.HasValue("tituloTratado1")) {
                 <li class="nav-item">
                   <a class="nav-link active" id="v-pills-tlc-tab" data-bs-toggle="pill" href="#v-pills-tlc" role="tab" aria-controls="v-pills-tlc" aria-selected="true">@Model.Value("tituloTratado1")</a>
-                </li>
+                </li    >
+                    }
+                }
+                
+                 @{
+                     if(Model.HasValue("tituloTratado2")) {
                 <li class="nav-item">
                   <a class="nav-link" id="v-pills-alba-tab" data-bs-toggle="pill" href="#v-pills-alba" role="tab" aria-controls="v-pills-alba" aria-selected="false">@Model.Value("tituloTratado2")</a>
                 </li>
-    
+                    }
+                }
+                
+                
+                 @{
+                     if(Model.HasValue("tituloTratado3")) {
                 <li class="nav-item">
                   <a class="nav-link" id="v-pills-tlm-tab" data-bs-toggle="pill" href="#v-pills-tlm" role="tab" aria-controls="v-pills-tlm" aria-selected="false">@Model.Value("tituloTratado3")</a>
                 </li>
+                    }
+                }
                 
+                 @{
+                     if(Model.HasValue("tituloTratado4")) {
                 <li class="nav-item">
                   <a class="nav-link" id="v-pills-tra4-tab" data-bs-toggle="pill" href="#v-pills-tra4" role="tab" aria-controls="v-pills-tlm" aria-selected="false">@Model.Value("tituloTratado4")</a>
                 </li>
+                    }
+                }
                 
+                 @{
+                     if(Model.HasValue("tituloTratado5")) {
                 <li class="nav-item">
                   <a class="nav-link" id="v-pills-tra5-tab" data-bs-toggle="pill" href="#v-pills-tra5" role="tab" aria-controls="v-pills-tlm" aria-selected="false">@Model.Value("tituloTratado5")</a>
                 </li>
+                    }
+                }
                 
+                 @{
+                     if(Model.HasValue("tituloTratado6")) {
                 <li class="nav-item">
                   <a class="nav-link" id="v-pills-tra6-tab" data-bs-toggle="pill" href="#v-pills-tra6" role="tab" aria-controls="v-pills-tlm" aria-selected="false">@Model.Value("tituloTratado6")</a>
                 </li>
-                
+                    }
+                }
                 
                 @{
                      if(Model.HasValue("tituloTratado7")) {

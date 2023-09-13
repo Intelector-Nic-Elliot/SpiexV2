@@ -7,14 +7,20 @@
 
 @{
     var doc = Model.Value<IPublishedContent>("btndescarga");
-    var docUrl = doc.Url().ToString();
-    var test = "/assets/web/viewer.html?file=" + docUrl;
+    
 
 
 }
 
+ @if (Model.Url().ToString().ToLower().Contains("/en-us/"))
+    {
+        @await Html.PartialAsync("_Requests")
+    }
 
-
+ @if (Model.Url().ToString().ToLower().Contains("/es/"))
+    {
+        @await Html.PartialAsync("_Solicitudes")
+    }
 
 @await Html.PartialAsync("_Header")
 <div class="container">
@@ -53,7 +59,7 @@ var icon4 = Model.Value<IPublishedContent>("icono4");
                         <img class="inter" src="@icon1.Url()">
                     }
                 </div>
-			<p class="text-sector-blue">@Model.Value("texto1")</p>
+			<p class="text-sector-blue-two">@Model.Value("texto1")</p>
 		    </div>
 		</div>
 		<div class="col-sm-6 col-md-6 col-lg-3 mb-3">
@@ -65,7 +71,7 @@ var icon4 = Model.Value<IPublishedContent>("icono4");
                     }
                 </div>
 		    
-			<p class="text-sector-blue">@Model.Value("texto2")</p>
+			<p class="text-sector-blue-two">@Model.Value("texto2")</p>
 		    </div>
 		</div>
 		<div class="col-sm-6 col-md-6 col-lg-3 mb-3">
@@ -77,7 +83,7 @@ var icon4 = Model.Value<IPublishedContent>("icono4");
                     }
                 </div>
 		    
-			<p class="text-sector-blue">@Model.Value("texto3")</p>
+			<p class="text-sector-blue-two">@Model.Value("texto3")</p>
 		    </div>
 		</div>
 		<div class="col-sm-6 col-md-6 col-lg-3 mb-3">
@@ -88,7 +94,7 @@ var icon4 = Model.Value<IPublishedContent>("icono4");
                         <img class="inter" src="@icon4.Url()">
                     }
                 </div>
-			<p class="text-sector-blue">@Model.Value("texto4")</p>
+			<p class="text-sector-blue-two">@Model.Value("texto4")</p>
 		    </div>
 		</div>
 	</div>
@@ -103,7 +109,7 @@ var iconp4 = Model.Value<IPublishedContent>("iconop4");
 
 <div class="container-fluid bg-gris">
     <div class="container">
-        <h1 class="spiex-section-title">@Model.Value("tituloProductos")</h1>
+        <h1 class="spiex-section-title-two">@Model.Value("tituloProductos")</h1>
     </div>
     <div class="container">
 	<div class="row">
@@ -113,7 +119,7 @@ var iconp4 = Model.Value<IPublishedContent>("iconop4");
             {
                 <img class="pro-sector" src="@iconp1.Url()">
             }
-			<p class="text-sector-blue">@Model.Value("textop")</p>
+			<p class="text-sector-blue ">@Model.Value("textop")</p>
 		    </div>
 		</div>
 		<div class="col-sm-6 col-md-6 col-lg-3 mb-3">
@@ -122,7 +128,7 @@ var iconp4 = Model.Value<IPublishedContent>("iconop4");
             {
                 <img class="pro-sector" src="@iconp2.Url()">
             }
-			<p class="text-sector-blue">@Model.Value("textop2")</p>
+			<p class="text-sector-blue ">@Model.Value("textop2")</p>
 		    </div>
 		</div>
 		<div class="col-sm-6 col-md-6 col-lg-3 mb-3">
@@ -131,7 +137,7 @@ var iconp4 = Model.Value<IPublishedContent>("iconop4");
             {
                 <img class="pro-sector" src="@iconp3.Url()">
             }
-			<p class="text-sector-blue">@Model.Value("textop3")</p>
+			<p class="text-sector-blue ">@Model.Value("textop3")</p>
 		    </div>
 		</div>
 		<div class="col-sm-6 col-md-6 col-lg-3 mb-3">
@@ -140,7 +146,7 @@ var iconp4 = Model.Value<IPublishedContent>("iconop4");
             {
                 <img class="pro-sector" src="@iconp4.Url()">
             }
-			<p class="text-sector-blue">@Model.Value("textop4")</p>
+			<p class="text-sector-blue ">@Model.Value("textop4")</p>
 		    </div>
 		</div>
 	</div>
@@ -213,8 +219,10 @@ var iconp4 = Model.Value<IPublishedContent>("iconop4");
 
 
 <!-- Mandatory scripts -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script src="/scripts/countup.min.js"></script>
-<script src="?v=3.0.4" type="text/javascript"></script>
 <script type="text/javascript">
   if (document.getElementById("state1")) {
     const countUp = new CountUp("state1", document.getElementById("state1").getAttribute("countTo"));
@@ -242,8 +250,33 @@ var iconp4 = Model.Value<IPublishedContent>("iconop4");
   }
 </script>
 
-
-@section Scripts{
-    <script src="/assets/build/pdf.worker.js"></script>
-    
+<script>
+    function Contacto(){
+    $.ajax({
+        url: $('#solicitudes').data('url'),
+        type: 'GET',
+    }).done(function(result){
+        $('#solicitudes').html(result);
+    });
 }
+
+$(document).ready(function(){
+    Contacto();
+});
+</script>
+
+<script>
+    function Contact(){
+    $.ajax({
+        url: $('#requests').data('url'),
+        type: 'GET',
+    }).done(function(result){
+        $('#requests').html(result);
+    });
+}
+
+$(document).ready(function(){
+    Contact();
+});
+</script>
+

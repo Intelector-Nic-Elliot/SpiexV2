@@ -1,0 +1,19 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.PoliticasDePrivacidad>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+
+@await Html.PartialAsync("_HeaderP")
+<div id="noticias" class="container">
+    <div class="row mt-2">
+        <div class="col-sm-12">
+            <h1 class="spiex-section-title ">@Model.Value("titulo")</h1>
+                @Model.Value("contenido")
+
+        </div>
+    </div>
+</div>
+<br>

@@ -27,7 +27,7 @@
 	             var img = item.Value<IPublishedContent>("imgbanner");
 	            	<div class="item mb-4">
                         <div class="card border-0 shadow">
-                            <img class="carrousel-img img-fluid" src="@img.Url()" alt="Sector" />
+                            <img class="carrousel-img img-fluid" src="@img.Url()" alt="Sectores" />
 
                             <div class="card-body">
                                 <a href="@item.Url()"><p id="sec" class="spiex-lead text-start">@item.Value("titulo")</p></a>
@@ -56,7 +56,7 @@
                             var macro1 = Model.Value<IPublishedContent>("imgdato1");
                             if (macro1 != null)
                             {
-                                <img id="ico" src="@macro1.MediaUrl()" alt="" />
+                                <img id="ico" src="@macro1.MediaUrl()" alt="Producto Interno Bruto PIB" />
                             }
                         }
                     </div>
@@ -72,7 +72,7 @@
                             var macro2 = Model.Value<IPublishedContent>("imgdato2");
                             if (macro2 != null)
                             {
-                                <img id="ico" src="@macro2.MediaUrl()" alt="" />
+                                <img id="ico" src="@macro2.MediaUrl()" alt="Crecimiento PIB" />
                             }
                         }
                     </div>
@@ -88,7 +88,7 @@
                             var macro3 = Model.Value<IPublishedContent>("imgdato3");
                             if (macro3 != null)
                             {
-                                <img id="ico" src="@macro3.MediaUrl()" alt="" />
+                                <img id="ico" src="@macro3.MediaUrl()" alt="PIB per cápita" />
                             }
                         }
                     </div>
@@ -104,7 +104,7 @@
                             var macro4 = Model.Value<IPublishedContent>("imgdato4");
                             if (macro4 != null)
                             {
-                                <img id="ico" src="@macro4.MediaUrl()" alt="" />
+                                <img id="ico" src="@macro4.MediaUrl()" alt="Exportaciones" />
                             }
                         }
                     </div>
@@ -120,7 +120,7 @@
                             var macro5 = Model.Value<IPublishedContent>("imgdato5");
                             if (macro5 != null)
                             {
-                                <img id="ico" src="@macro5.MediaUrl()" alt="@macro5.Value("alt")" />
+                                <img id="ico" src="@macro5.MediaUrl()" alt="Reservas internacionales brutas" />
                             }
                         }
                     </div>
@@ -136,7 +136,7 @@
                             var macro6 = Model.Value<IPublishedContent>("imgdato6");
                             if (macro6 != null)
                             {
-                                <img id="ico" src="@macro6.MediaUrl()" alt="@macro6.Value("alt")" />
+                                <img id="ico" src="@macro6.MediaUrl()" alt="Por dólar a septiembre 2023" />
                             }
                         }
                     </div>
@@ -152,7 +152,7 @@
                             var macro7 = Model.Value<IPublishedContent>("imgdato7");
                             if (macro7 != null)
                             {
-                                <img id="ico" src="@macro7.MediaUrl()" alt="@macro7.Value("alt")" />
+                                <img id="ico" src="@macro7.MediaUrl()" alt="Devaluación fija de la moneda" />
                             }
                         }
                     </div>
@@ -168,7 +168,7 @@
                             var macro8 = Model.Value<IPublishedContent>("imgdato8");
                             if (macro8 != null)
                             {
-                                <img id="ico" src="@macro8.MediaUrl()" alt="@macro8.Value("alt")" />
+                                <img id="ico" src="@macro8.MediaUrl()" alt="Inversión Extranjera Directa IED" />
                             }
                         }
                     </div>
@@ -330,7 +330,7 @@
                 var guia = Model.Value<IPublishedContent>("imgguia");
                 if (guia != null)
                 {
-                    <img class="img-radius img-fluid" src="@guia.Url()" alt="" />
+                    <img class="img-radius img-fluid" src="@guia.Url()" alt="Guia del inversionsita" />
                 }
             }
         </div>
@@ -376,7 +376,7 @@
                         var img = item.Value<IPublishedContent>("imgbanner");
                         <div class="item mb-4">
                             <div id="carusel" class="card border-0 shadow">
-                                <img class="img-fluid img-radius-top" src="@img.Url()" alt="Noticia" />
+                                <img class="img-fluid img-radius-top" src="@img.Url()" alt="Noticias" />
     
                                 <div class="card-body">
                                     @{
@@ -430,120 +430,133 @@
                 <div class="row row-cols-auto">
                     <div class="owl-two owl-carousel owl-theme ">
                         <div class="item mb-4">
-                            <a class="d-flex justify-content-center " href="@Model.Value("urlenlace1")" target="_blank">
+                            <a class="d-flex justify-content-center " aria-label="Conoce mas sobre la dga" href="@Model.Value("urlenlace1")"  target="_blank">
                                 @{
                                     var x = Model.Value<IPublishedContent>("imgexterno1");
                                     if (x != null)
                                     {
-                                        <img id="dga" class="img-fluid mb-4 " src="@x.MediaUrl()" alt="" />
+                                        <img id="dga" class="img-fluid mb-4 " src="@x.MediaUrl()" alt="dga" />
 
                                     }
                                 }
                             </a>
                         </div>
                         <div class="item mb-4">
-                            <a class="d-flex justify-content-center " href="@Model.Value("urlenlace2")" target="_blank">
+                            <a class="d-flex justify-content-center " aria-label="conoce sobre el ministerio de energia" href="@Model.Value("urlenlace2")" target="_blank">
                                 @{
                                     var x1 = Model.Value<IPublishedContent>("imgexterno2");
                                     if (x1 != null)
                                     {
-                                        <img id="mem" class="img-fluid mb-4 " src="@x1.MediaUrl()" alt="" />
+                                        <img id="mem" class="img-fluid mb-4 " src="@x1.MediaUrl()" alt="ministerio de energia" />
 
                                     }
                                 }
                             </a>
                         </div>
                         <div class="item mb-4">
-                            <a class="d-flex justify-content-center " href="@Model.Value("urlenlace3")" target="_blank">
+                            <a class="d-flex justify-content-center" aria-label="Conoce mas sobre la dgi" href="@Model.Value("urlenlace3")" target="_blank">
                                 @{
                                     var x2 = Model.Value<IPublishedContent>("imgexterno3");
                                     if (x2 != null)
                                     {
-                                        <img id="dgi" class="img-fluid mb-4 " src="@x2.MediaUrl()" alt="" />
+                                        <img id="dgi" class="img-fluid mb-4 " src="@x2.MediaUrl()" alt="dgi" />
 
                                     }
                                 }
                             </a>
                         </div>
                         <div class="item mb-4">
-                            <a class="d-flex justify-content-center " href="@Model.Value("urlenlace4")" target="_blank">
+                            <a class="d-flex justify-content-center" aria-label="Conoce mas sobre el sitio web ana" href="@Model.Value("urlenlace4")" target="_blank">
                                 @{
                                     var x3 = Model.Value<IPublishedContent>("imgexterno4");
                                     if (x3 != null)
                                     {
-                                        <img id="ana" class="img-fluid mb-4 " src="@x3.MediaUrl()" alt="" />
+                                        <img id="ana" class="img-fluid mb-4 " src="@x3.MediaUrl()" alt="ana" />
 
                                     }
                                 }
                             </a>
                         </div>
                         <div class="item mb-4">
-                            <a class="d-flex justify-content-center " href="@Model.Value("urlenlace5")" target="_blank">
+                            <a class="d-flex justify-content-center" aria-label="Conoce mas sobre el consejo de zonas francas" href="@Model.Value("urlenlace5")" target="_blank">
                                 @{
                                     var x4 = Model.Value<IPublishedContent>("imgexterno5");
                                     if (x4 != null)
                                     {
-                                        <img id="cn" class="img-fluid mb-4 " src="@x4.MediaUrl()" alt="" />
+                                        <img id="cn" class="img-fluid mb-4 " src="@x4.MediaUrl()" alt="consejo de zonas francas" />
 
                                     }
                                 }
                             </a>
                         </div>
                         <div class="item mb-4">
-                            <a class="d-flex justify-content-center " href="@Model.Value("urlenlace6")" target="_blank">
+                            <a class="d-flex justify-content-center" aria-label="Conoce mas sobre el banco central" href="@Model.Value("urlenlace6")" target="_blank">
                                 @{
                                     var x5 = Model.Value<IPublishedContent>("imgexterno6");
                                     if (x5 != null)
                                     {
-                                        <img id="bcn" class="img-fluid mb-4 " src="@x5.MediaUrl()" alt="" />
+                                        <img id="bcn" class="img-fluid mb-4 " src="@x5.MediaUrl()" alt="banco central" />
 
                                     }
                                 }
                             </a>
                         </div>
                         <div class="item mb-4">
-                            <a class="d-flex justify-content-center " href="@Model.Value("urlenlace7")" target="_blank">
+                            <a class="d-flex justify-content-center" aria-label="Conoce mas sobre ipsa" href="@Model.Value("urlenlace7")" target="_blank">
                                 @{
                                     var x6 = Model.Value<IPublishedContent>("imgexterno7");
                                     if (x6 != null)
                                     {
-                                        <img id="ipsa" class="img-fluid mb-4 " src="@x6.MediaUrl()" alt="" />
+                                        <img id="ipsa" class="img-fluid mb-4 " src="@x6.MediaUrl()" alt="ipsa" />
 
                                     }
                                 }
                             </a>
                         </div>
                         <div class="item mb-4">
-                            <a class="d-flex justify-content-center " href="@Model.Value("urlenlace8")" target="_blank">
+                            <a class="d-flex justify-content-center" aria-label="Conoce mas sobre el marena" href="@Model.Value("urlenlace8")" target="_blank">
                                 @{
                                     var x7 = Model.Value<IPublishedContent>("imgexterno8");
                                     if (x7 != null)
                                     {
-                                        <img id="marena" class="img-fluid mb-4 " src="@x7.MediaUrl()" alt="" />
+                                        <img id="marena" class="img-fluid mb-4 " src="@x7.MediaUrl()" alt="marena" />
 
                                     }
                                 }
                             </a>
                         </div>
                         <div class="item mb-4">
-                            <a class="d-flex justify-content-center " href="@Model.Value("urlenlace9")" target="_blank">
+                            <a class="d-flex justify-content-center" aria-label="Conoce mas sobre el mific" href="@Model.Value("urlenlace9")" target="_blank">
                                 @{
                                     var x8 = Model.Value<IPublishedContent>("imgexterno9");
                                     if (x8 != null)
                                     {
-                                        <img id="mific" class="img-fluid mb-4 " src="@x8.MediaUrl()" alt="" />
+                                        <img id="mific" class="img-fluid mb-4 " src="@x8.MediaUrl()" alt="mific" />
 
                                     }
                                 }
                             </a>
                         </div>
                         <div class="item mb-4">
-                            <a class="d-flex justify-content-center " href="@Model.Value("urlenlace10")" target="_blank">
+                            <a class="d-flex justify-content-center" aria-label="Conoce mas sobre el ente telcor" href="@Model.Value("urlenlace10")" target="_blank">
                                 @{
                                     var x9 = Model.Value<IPublishedContent>("imgexterno10");
                                     if (x9 != null)
                                     {
-                                        <img id="telcor" class="img-fluid mb-4 " src="@x9.MediaUrl()" alt="" />
+                                        <img id="telcor" class="img-fluid mb-4 " src="@x9.MediaUrl()" alt="telcor" />
+
+                                    }
+                                }
+                            </a>
+                        </div>
+                        
+                        <div class="item mb-4">
+                            <a class="d-flex justify-content-center" aria-label="Conoce mas sobre intur" href="@Model.Value("urlenlace11")" target="_blank">
+                                @{
+                                    var x10 = Model.Value<IPublishedContent>("imgexterno11");
+                                    if (x10 != null)
+                                    {
+                                        <img id="ana" class="img-fluid mb-4 " src="@x10.MediaUrl()" alt="intur" />
 
                                     }
                                 }

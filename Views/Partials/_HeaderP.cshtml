@@ -1,0 +1,184 @@
+﻿
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+
+
+@{
+    var logo = Model.Value<IPublishedContent>("logoinicio");
+    var banner = Model.Value<IPublishedContent>("imgbanner");
+    var logobanner = Model.Value<IPublishedContent>("logobanner");
+}
+
+<div class="row" style="position:relative; z-index:2; margin:0">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <div class="container-fluid">
+                @if (Model.Url().ToString().ToLower().Contains("/es/"))
+                {
+                <a href="/es/"><img class="logo-principal" src="@logo.Url()" alt="Logo SPIEX"/></a>
+                }
+                 @if (Model.Url().ToString().ToLower().Contains("/en-us/"))
+                {
+               <a href="/en-us/"><img class="logo-principal" src="@logo.Url()" alt="Logo SPIEX"/></a>
+                }
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="bi bi-list tog"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        @if (Model.Url().ToString().ToLower().Contains("/es/"))
+                        {
+                        <li class="nav-item">
+                            <a id="na" class="nav-link " aria-current="page" href="/es/inicio">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="na" class="nav-link " aria-current="page" href="/es/por-que-nicaragua">¿Por qué Nicaragua?</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="na" class="nav-link " aria-current="page" href="/es/sectores">Sectores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="na" class="nav-link " aria-current="page" href="/es/servicios">Servicios</a>
+                        </li>
+                         <li class="nav-item">
+                            <a id="na" class="nav-link " aria-current="page" href="/es/recursos">Recursos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="na" class="nav-link " aria-current="page" href="/es/contacto">Contacto</a>
+                        </li>
+                        }
+
+
+                        @if (Model.Url().ToString().ToLower().Contains("/en-us/"))
+                        {
+                        <li class="nav-item">
+                            <a id="na" class="nav-link " aria-current="page" href="/en-us/inicio">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="na" class="nav-link " aria-current="page" href="/en-us/por-que-nicaragua">Why Nicaragua?</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="na" class="nav-link " aria-current="page" href="/en-us/sectores">Sectors</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="na" class="nav-link " aria-current="page" href="/en-us/servicios">Services</a>
+                        </li>
+                         <li class="nav-item">
+                            <a id="na" class="nav-link " aria-current="page" href="/en-us/recursos">Resources</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="na" class="nav-link " aria-current="page" href="/en-us/contacto">Contact Us</a>
+                        </li>
+                        }
+                        <div class="dropdown">
+                          <input type="checkbox" id="dropdown" />
+                          <label for="dropdown" class="dropdown-btn">
+                            <span><i class="bi bi-globe" style="padding:5px"></i></span>
+                            <span class="arrow"></span>
+                          </label>
+                          
+                          <ul class="dropdown-content" role="menu">
+                            <li><a id="espanol" href="#">Es</a></li>
+                            <li><a id="ingles" href="#">En</a></li>
+                          </ul>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</div>
+
+<div id="header" class="container-fluid d-flex align-items-center" style="position: relative; background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(@banner.Url()); background-position: center center; background-size: cover; background-repeat: no-repeat;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mx-auto" style="z-index:1;">
+                 @{
+                    if(@Model.Value("titulo", fallback: Fallback.ToAncestors).ToString().Length > 100){
+                        <h1 class="spiex-title text-white m-0">@Model.Value("titulo", fallback: Fallback.ToAncestors).ToString().Substring(0, 100)...</h1>
+                    }
+                    else
+                    {
+                        <h1 class="spiex-title text-white m-0">@Model.Value("titulo", fallback: Fallback.ToAncestors).ToString()</h1>
+                    }
+                }
+               
+                @{
+                    if(@Model.Value("subtitulo", fallback: Fallback.ToAncestors).ToString().Length > 100){
+                        <h2 class="spiex-subtitle text-white">@Model.Value("subtitulo", fallback: Fallback.ToAncestors).ToString().Substring(0, 100)...</h2>
+                    }
+                    else
+                    {
+                        <h2 class="spiex-subtitle text-white">@Model.Value("subtitulo", fallback: Fallback.ToAncestors).ToString()</h2>
+                    }
+                }
+                
+                
+            </div>
+            </div>
+        </div>
+    <div class="container-fluid mover">
+        <div class="row d-flex justify-content-end">
+            <div class="banner-principal col-sm-12 col-md-10 col-lg-7 col-xl-6">
+                <div class="row m-0">
+                    <div class="d-none d-sm-block col-sm-12 col-md-11">
+                        <div class="row">
+                            <div class="d-flex justify-content-end align-items-center contenedor-border col-4 p-0">
+                            <img src="/media/lfhpqlqi/logo-blanco-cropped.png" height=40px style="padding-right:25px;" alt="logo de la secretaria de promociones e inversiones">
+                            </div>
+                            <div class="col-8 d-flex align-items-center">
+                               @if (Model.Url().ToString().ToLower().Contains("/es/"))
+                                {
+                                    <p class="spiex-lead text-white" style="padding-left:10px; line-height:1.2;">Secretaría de Promoción de Inversiones y Exportaciones</p>
+                                }
+                                @if (Model.Url().ToString().ToLower().Contains("/en-us/"))
+                                {
+                                    <p class="spiex-lead text-white" style="padding-left:10px; line-height:1.2;">Investment Promotion and Export Office</p>
+                                }
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <div class="d-flex flex-column align-items-center d-sm-none col-sm-12 col-md-11">
+                        @if (Model.Url().ToString().ToLower().Contains("/es/"))
+                        {
+                            <p class="spiex-lead text-white text-center" sytle="line-height:1.2;">Secretaría de Promoción de Inversiones y Exportaciones</p>
+                        }
+                        @if (Model.Url().ToString().ToLower().Contains("/en-us/"))
+                        {
+                            <p class="spiex-lead text-white text-center" sytle="line-height:1.2;">Investment and Export Promotion Secretary</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var ingles = document.getElementById("ingles");
+        var espanol = document.getElementById("espanol");
+        ingles.addEventListener("click", function() {
+            var currentURL = window.location.href;
+        
+            if (currentURL.includes("/es/")) {
+                var nuevaURL = currentURL.replace("/es/", "/en-us/");
+                window.location.href = nuevaURL;
+            }
+            else
+            {
+                
+            }
+        });
+        espanol.addEventListener("click", function() {
+            var currentURL = window.location.href;
+        
+            if (currentURL.includes("/en-us/")) {
+                var nuevaURL = currentURL.replace("/en-us/", "/es/");
+                window.location.href = nuevaURL;
+            }
+            else
+            {
+                
+            }
+        });
+    });
+</script>

@@ -25,7 +25,8 @@
 <div class="container">
      <div class="row">
         <div class="col-sm-12">
-            <div class="owl-news owl-carousel owl-theme">
+            <div class="row">
+                            <div class="owl-news owl-carousel owl-theme">
                 @{
                     var actual = @Model.Name();
                 	var Noticias = Umbraco.Content(Guid.Parse("d38c280c-5d26-4154-949f-e5314a9a64dc"))
@@ -71,6 +72,8 @@
                         </div>
                     </div>
 	            }
+            </div>
+
             </div>
         </div>
     </div>

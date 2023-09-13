@@ -76,6 +76,13 @@
 }
 
 </style>
+
+@{
+var icon1 = Model.Value<IPublishedContent>("icono1");
+var icon2 = Model.Value<IPublishedContent>("icono2");
+var icon3 = Model.Value<IPublishedContent>("icono3");
+}
+
 <!--Section 1-->
 <div class="container">
     <div class="row">
@@ -86,8 +93,8 @@
     <div class="row">
       <div class="col-lg-4 col-md-6">
         <div class="p-3 text-center">
-          <div class="icon icon-shape icon-md bg-gradient-primary shadow mx-auto bg-azul">
-            <i class="material-icons opacity-10 bg-azul"></i>
+         <div class="icon iconserv icon-md bg-gradient-info shadow mx-auto bg-azul">
+             <img class="iconser" src="@icon1.Url()" alt="iconoservicio"/>
           </div>
           <h5 class="mt-3 mb-2 spiex-subtitle">@Model.Value("titulo1")</h5>
           <p class="text-dark">@Model.Value("texto1")</p>
@@ -95,8 +102,8 @@
       </div>
       <div class="col-lg-4 col-md-6">
         <div class="p-3 text-center">
-          <div class="icon icon-shape icon-md bg-gradient-info shadow mx-auto bg-azul">
-            <i class="material-icons opacity-10 bg-azul"></i>
+          <div class="icon iconserv icon-md bg-gradient-info shadow mx-auto bg-azul">
+               <img class="iconser" src="@icon2.Url()" alt="iconoservicio2" />
           </div>
           <h5 class="mt-3 mb-2 spiex-subtitle">@Model.Value("titulo2")</h5>
           <p class="text-dark">@Model.Value("texto2")</p>
@@ -104,9 +111,9 @@
       </div>
       <div class="col-lg-4 col-md-6 mx-md-auto">
         <div class="p-3 text-center">
-          <div class="icon icon-shape icon-md bg-gradient-warning shadow mx-auto bg-azul">
-            <i class="material-icons opacity-10 bg-azul"></i>
-          </div>
+          <div class="icon iconserv icon-md bg-gradient-warning shadow mx-auto bg-azul">
+                    <img class="iconser" src="@icon3.Url()" alt="iconoservicio" />
+           </div>
           <h5 class="mt-3 mb-2 spiex-subtitle">@Model.Value("titulo3")</h5>
           <p class="text-dark">@Model.Value("texto3")</p>
         </div>
@@ -138,7 +145,7 @@
                  var banner = servicio.Value<IPublishedContent>("banner");
                 }
                 <div class="card-serv">            
-                    <img class="card-img img-fluid" src="@banner.Url()" alt="">
+                    <img class="etapa card-img img-fluid" src="@banner.Url()" alt="">
                     <div class="card-body-ser">
                         <h1 class="spiex-section-title text-white pb-3">@servicio.Value("nombre")</h1>
                             @servicio.Value("contenido")

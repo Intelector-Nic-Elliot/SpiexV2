@@ -12,6 +12,17 @@
 
 
 }
+
+
+ @if (Model.Url().ToString().ToLower().Contains("/en-us/"))
+    {
+        @await Html.PartialAsync("_Requests")
+    }
+
+ @if (Model.Url().ToString().ToLower().Contains("/es/"))
+    {
+        @await Html.PartialAsync("_Solicitudes")
+    }
 @await Html.PartialAsync("_Header")
 
 
@@ -34,6 +45,40 @@
         </div>
     </div>
 </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    function Contacto(){
+    $.ajax({
+        url: $('#solicitudes').data('url'),
+        type: 'GET',
+    }).done(function(result){
+        $('#solicitudes').html(result);
+    });
+}
+
+$(document).ready(function(){
+    Contacto();
+});
+</script>
+
+<script>
+    function Contact(){
+    $.ajax({
+        url: $('#requests').data('url'),
+        type: 'GET',
+    }).done(function(result){
+        $('#requests').html(result);
+    });
+}
+
+$(document).ready(function(){
+    Contact();
+});
+</script>
+
 
 @section Scripts{
     <script src="/assets/build/pdf.worker.js"></script>
