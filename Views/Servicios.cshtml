@@ -145,7 +145,7 @@ var icon3 = Model.Value<IPublishedContent>("icono3");
                  var banner = servicio.Value<IPublishedContent>("banner");
                 }
                 <div class="card-serv">            
-                    <img class="etapa card-img img-fluid" src="@banner.Url()" alt="">
+                    <img class="etapa card-img" src="@banner.Url()" alt="">
                     <div class="card-body-ser">
                         <h1 class="spiex-section-title text-white pb-3">@servicio.Value("nombre")</h1>
                             @servicio.Value("contenido")
