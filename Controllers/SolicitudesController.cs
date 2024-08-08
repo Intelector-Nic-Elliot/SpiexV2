@@ -9,6 +9,8 @@ using Umbraco.Cms.Core.Web;
 using Umbraco.Cms.Infrastructure.Persistence;
 using Umbraco.Cms.Web.Common.Filters;
 using Umbraco.Cms.Web.Website.Controllers;
+using System.Net;
+using Newtonsoft.Json.Linq;
 
 namespace UmbracoProject1.Controllers
 {
@@ -38,21 +40,26 @@ namespace UmbracoProject1.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Crear(SolicitudModel model)
+        public IActionResult Crear(SolicitudModel model )
         {
-            var cs = Services.ContentService;
-            var pId = new Guid("7e25a96e-7f10-4804-b451-214a9263a673"); //7e25a96e-7f10-4804-b451-214a9263a673 56873b49-b358-420f-88fc-377efe1f7f1e
-            var solicitud = cs.Create(model.Correo, pId, "solicitud");
-            solicitud.SetValue("nombre", model.Nombre);
-            solicitud.SetValue("apellido", model.Apellido);
-            solicitud.SetValue("empresa", model.Empresa);
-            solicitud.SetValue("cargo", model.Cargo);
-            solicitud.SetValue("correo", model.Correo);
-            solicitud.SetValue("telefono", model.Telefono);
-            solicitud.SetValue("mensaje", model.Mensaje);
-            solicitud.SetValue("origen", "General");
-            cs.SaveAndPublish(solicitud);
-            return PartialView("_Gracias");
+            
+                var cs = Services.ContentService;
+                var pId = new Guid("7e25a96e-7f10-4804-b451-214a9263a673"); //7e25a96e-7f10-4804-b451-214a9263a673 56873b49-b358-420f-88fc-377efe1f7f1e
+                var solicitud = cs.Create(model.Correo, pId, "solicitud");
+                solicitud.SetValue("nombre", model.Nombre);
+                solicitud.SetValue("apellido", model.Apellido);
+                solicitud.SetValue("empresa", model.Empresa);
+                solicitud.SetValue("cargo", model.Cargo);
+                solicitud.SetValue("correo", model.Correo);
+                solicitud.SetValue("telefono", model.Telefono);
+                solicitud.SetValue("mensaje", model.Mensaje);
+                solicitud.SetValue("origen", "General");
+                cs.SaveAndPublish(solicitud);
+                return PartialView("_Gracias");
+            
+
+            
         }
+
     }
 }

@@ -19,8 +19,8 @@
     <!-- Icon Font Stylesheet -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-    
 </head>
 
 
@@ -39,6 +39,10 @@
 
 
 </body>
+@if (Model.Url().ToString().ToLower().Contains("/zh-cn/"))
+    {
+        @await Html.PartialAsync("_SolicitudesCH")
+    }   
  @if (Model.Url().ToString().ToLower().Contains("/en-us/"))
     {
         @await Html.PartialAsync("_Requests")
@@ -103,7 +107,9 @@
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
            <li><a href="https://twitter.com/SPIEX_NIC" aria-label="Visita nuestra red social twitter"><i class="bi bi-twitter ms-3 text-white spiex-p-lead"></i></a></li> 
            <li><a href=" https://www.youtube.com/investmentnicaragua" aria-label="Visita nuestro canal de youtube"><i class="bi bi-youtube ms-3 text-white spiex-p-lead"></i></a></li> 
-         <li><a href="https://www.linkedin.com/company/spiex/" aria-label="visita nuestro perfil de linkedin"><i class="bi bi-linkedin ms-3 text-white spiex-p-lead"></i></a></li>    
+         <li><a href="https://www.linkedin.com/company/spiex/" aria-label="visita nuestro perfil de linkedin"><i class="bi bi-linkedin ms-3 text-white spiex-p-lead"></i></a></li>
+         <a href="#"><i class="bi bi-wechat"></i></a>
+
         </ul>
       </div>
     </div>
@@ -164,11 +170,81 @@
             <a href="https://twitter.com/SPIEX_NIC"><i class="bi bi-twitter ms-3 text-white spiex-p-lead"></i></a>
             <a href="https://www.youtube.com/investmentnicaragua"><i class="bi bi-youtube ms-3 text-white spiex-p-lead"></i></a>
             <a href="https://www.linkedin.com/company/spiex/"><i class="bi bi-linkedin ms-3 text-white spiex-p-lead"></i></a>
+            <a href="#"><i class="bi bi-wechat"></i></a>
         </ul>
       </div>
     </div>
 </footer>
 }
+
+
+
+<!--footer Chino-->
+@if (Model.Url().ToString().ToLower().Contains("/zh-cn/"))
+{
+    <footer class="container-fluid bg-azul">
+        <div class=" container py-5">
+            <div class="row">
+                <div class="col-12 col-md-4 mb-3">
+                    <a href="/en-us/"><img src="/media/lfhpqlqi/logo-blanco-cropped.png" height="40px" class="mb-3 mt-2" alt=""></a>
+                    <p class="text-white">它是尼加拉瓜共和国总统府促进投资和出口秘书处</p>
+                </div>
+
+                <div class="col-12 col-md-1 px-4 mb-3">
+                </div>
+
+                <div class="col-12 col-6 col-md-2 mb-3 pb-5">
+                    <p class="text-white spiex-p-lead">快速访问</p>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="/zh-cn/" class="nav-link p-0 text-white">开始</a></li>
+                        <li class="nav-item mb-2"><a href="/zh-cn/为什么选尼加拉瓜？" class="nav-link p-0 text-white">为什么选尼加拉瓜？</a></li>
+                        <li class="nav-item mb-2"><a href="/zh-cn/部门 " class="nav-link p-0 text-white">部门 </a></li>
+                        <li class="nav-item mb-2"><a href="/zh-cn/服务业" class="nav-link p-0 text-white">服务业</a></li>
+                        <li class="nav-item mb-2"><a href="/zh-cn/资源 " class="nav-link p-0 text-white">资源 </a></li>
+                        <li class="nav-item mb-2"><a href="/zh-cn/联系" class="nav-link p-0 text-white">联系</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="col-12 col-6 col-md-2 mb-5 pb-5">
+                    <p class="text-white spiex-p-lead">法律</p>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="/zh-cn/条款及细则/" class="nav-item p-0  text-white">条款及细则</a></li>
+                        <li class="nav-item mb-2"><a href="/zh-cn/隐私策略/" class="nav-link p-0 text-white">隐私策略</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="col-12 col-6 col-md-3 mb-3">
+                    <p class="text-white spiex-p-lead">信息</p>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Managua, 尼加拉瓜</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">电话： (505) 2228 2803</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">邮件：info@spiex.gob.ni</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+                <p class="text-white">
+                    © 2023 SPIEX公司保留所有权利。
+              </p>
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <a href="https://twitter.com/SPIEX_NIC"><i class="bi bi-twitter ms-3 text-white spiex-p-lead"></i></a>
+                    <a href="https://www.youtube.com/investmentnicaragua"><i class="bi bi-youtube ms-3 text-white spiex-p-lead"></i></a>
+                    <a href="https://www.linkedin.com/company/spiex/"><i class="bi bi-linkedin ms-3 text-white spiex-p-lead"></i></a>
+                    <a href="#"><i class="bi bi-wechat"></i></a>
+                </ul>
+            </div>
+        </div>
+    </footer>
+}
+
+
+
+
+
 <!-- JavaScript Libraries -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -179,31 +255,20 @@
 <script src="../scripts/Solicitudes.js" type="text/javascript" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js" defer></script>
 <script src="../scripts/Requests.js" type="text/javascript" defer></script>
+<script src="../scripts/SolicitudesCH.js" type="text/javascript" defer></script>
+
 
 <!-- RenderScripts -->
 
 <!-- Template Javascript -->
 
 <script src="/scripts/owl.carousel.min.js" defer></script>
-<!--<script src="/scripts/material-kit-pro.js"></script> -->
 
 
 <script src="/scripts/main.js" defer></script>
 
 
 
-<!--Script para deshabilitar el click derecho-->
-
-<!--<script>
-    document.addEventListener("contextmenu", (e) => {
-        e.preventDefault();
-    });
-    document.addEventListener("keydown", (e) => {
-        if(e.keyCode == 123) {
-            return false
-        }
-    })
-</script> -->
 
 
 <script>

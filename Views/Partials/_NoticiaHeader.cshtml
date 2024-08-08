@@ -19,6 +19,10 @@
                 {
                <a href="/en-us/"><img class="logo-principal" src="@logo.Url()" alt="Logo SPIEX"/></a>
                 }
+                @if (Model.Url().ToString().ToLower().Contains("/zh-cn/"))
+                {
+                <a href="/cn/"><img class="logo-principal" src="@logo.Url()" alt="SPIEX标志" /></a>
+                }
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -68,6 +72,34 @@
                             <a id="na" class="nav-link " aria-current="page" href="/en-us/contacto">Contact Us</a>
                         </li>
                         }
+
+
+                    @if (Model.Url().ToString().ToLower().Contains("/zh-cn/"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="/zh-cn/">开始</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="/zh-cn/为什么选择尼加拉瓜">为什么选择尼加拉瓜</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="/zh-cn/部门">部门</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="/zh-cn/服务业">服务业</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="/zh-cn/资源">资源</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="/zh-cn/联系 ">联系 </a>
+                        </li>
+
+                    }
+
+
+
+
                         <div class="dropdown">
                           <input type="checkbox" id="dropdown" />
                           <label for="dropdown" class="dropdown-btn">
@@ -76,8 +108,10 @@
                           </label>
                           
                           <ul class="dropdown-content" role="menu">
-                            <li><a id="espanol" href="#">Es</a></li>
-                            <li><a id="ingles" href="#">En</a></li>
+                            <li><a id="espanol" href="/es/">Es</a></li>
+                            <li><a id="ingles" href="/en-us/">En</a></li>
+                            <li><a id="chino" href="/zh-cn/">Cn</a></li>
+
                           </ul>
                         </div>
                     </ul>
@@ -99,7 +133,62 @@
         </div>
     </div>
 </div>
+
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var chino = document.getElementById("chino");
+        var ingles = document.getElementById("ingles");
+        var espanol = document.getElementById("espanol");
+        ingles.addEventListener("click", function () {
+            var currentURL = window.location.href;
+
+            if (currentURL.includes("/es/")) {
+                var nuevaURL = currentURL.replace("/es/", "/en-us/");
+                window.location.href = nuevaURL;
+            }
+            else {
+
+            }
+        });
+        espanol.addEventListener("click", function () {
+            var currentURL = window.location.href;
+
+            if (currentURL.includes("/en-us/")) {
+                var nuevaURL = currentURL.replace("/en-us/", "/es/");
+                window.location.href = nuevaURL;
+            }
+            else {
+
+            }
+        });
+        chino.addEventListener("click", function () {
+            var currentURL = window.location.href;
+
+            if (currentURL.includes("/es/")) {
+                var nuevaURLC = currentURL.replace("/es/", "/zh-cn/");
+                window.location.href = nuevaURLC;
+            }
+
+            else {
+
+            }
+
+            if (currentURL.includes("/en-us/")) {
+                var nuevaURLX = currentURL.replace("/en-us/", "/zh-cn/")
+                window.location.href = nuevaURLX
+            }
+
+            else {
+
+            }
+        })
+    });
+</script>
+
+
+
+
+@* <script>
     document.addEventListener("DOMContentLoaded", function() {
         var ingles = document.getElementById("ingles");
         var espanol = document.getElementById("espanol");
@@ -128,4 +217,4 @@
             }
         });
     });
-</script>
+</script> *@

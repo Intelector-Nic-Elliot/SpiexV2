@@ -61,6 +61,10 @@
             <small class="form-text text-muted mb-1 mt-0"><span asp-validation-for="@Model.Mensaje" class="text-danger"></span></small>
         </div>
 
+        <div id="captcha" class="g-recaptcha input-group input-group-outline mb-3" data-sitekey="6Lca7jkoAAAAAMFVoTT4MvO6qAhW2JUWRcbql4Mw"></div>
+        @Html.ValidationMessageFor(x => x.ReCaptcha, "", new { @class = "text-danger" })
+
+
         <div class="text-center">
             <input type="submit" class="btn-spiex" value="Enviar" />
         </div>

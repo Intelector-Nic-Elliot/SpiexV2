@@ -33,7 +33,7 @@ namespace UmbracoProject1.Models
         [DataType(DataType.EmailAddress, ErrorMessage = "Ingrese un correo electrónico")]
         public string Correo { get; set; }
 
-        [Display(Name = "Telefono", Description = "Telefono")]
+        [Display(Name = "Teléfono", Description = "Teléfono")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese su número de teléfono")]
         [DataType(DataType.PhoneNumber, ErrorMessage = "Ingrese un numero de telefono")]
         [MaxLength(20, ErrorMessage = "Ingrese su numero")]
@@ -44,6 +44,10 @@ namespace UmbracoProject1.Models
         [DataType(DataType.MultilineText, ErrorMessage = "Ingrese un mensaje")]
         [MaxLength(600, ErrorMessage = "No debe exceder de 600 caracteres")]
         public string Mensaje { get; set; }
+
+        [Display(Name = "ReCaptcha", Description = "ReCaptcha")]
+        [Required(ErrorMessage = "Por favor, complete el reCAPTCHA")]
+        public string ReCaptcha { get; set; }
         public string Origen { get; set; }
     }
 }

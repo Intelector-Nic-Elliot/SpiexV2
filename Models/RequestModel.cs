@@ -44,6 +44,9 @@ namespace UmbracoProject1.Models
         [DataType(DataType.MultilineText, ErrorMessage = "Enter your message")]
         [MaxLength(600, ErrorMessage = "Should not exceed 600 characters")]
         public string Message { get; set; }
+
+        [Required(ErrorMessage = "Please, complete reCAPTCHA")]
+        public string ReCaptcha { get; set; }
     }
 }
 

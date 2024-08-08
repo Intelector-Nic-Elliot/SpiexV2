@@ -68,6 +68,10 @@
                             @if (Model.Url().ToString().ToLower().Contains("/en-us/")){
                                 <a href="@item.Url()" class="btn-spiex-third mt-3">See more &#187;</a>
                             }
+                            @if (Model.Url().ToString().ToLower().Contains("/zh-cn/"))
+                            {
+                                        <a href="@item.Url()" class="btn-spiex-third mt-3">查看更多 &#187;</a>
+                            }
                             </div>
                         </div>
                     </div>

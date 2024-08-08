@@ -295,7 +295,7 @@
                  @{
                      if(Model.HasValue("tituloTratado1")) {
                 <li class="nav-item">
-                  <a class="etapasmapa" id="v-pills-tlc-tab" data-bs-toggle="pill" href="#v-pills-tlc" role="tab" aria-controls="v-pills-tlc" aria-selected="true">@Model.Value("tituloTratado1")</a>
+                  <a class="etapasmapa active" id="v-pills-tlc-tab" data-bs-toggle="pill" href="#v-pills-tlc" role="tab" aria-controls="v-pills-tlc" aria-selected="true">@Model.Value("tituloTratado1")</a>
                 </li    >
                     }
                 }
@@ -361,7 +361,7 @@
                     var tlc = Model.Value<IPublishedContent>("tLC");
                     if (tlc != null)
                     {
-                        <img  src="@tlc.MediaUrl()" style="width: 100%; border-radius: 20px;" alt="" />
+                        <img  src="@tlc.MediaUrl()" style="width: 100%; " alt="" />
                     }
                 }
 
@@ -371,7 +371,7 @@
                     var alba = Model.Value<IPublishedContent>("alba");
                     if (alba != null)
                     {
-                        <img  src="@alba.MediaUrl()" style="width: 100%; border-radius: 20px;" alt="" />
+                        <img  src="@alba.MediaUrl()" style="width: 100%; " alt="" />
                     }
                 }
 
@@ -381,7 +381,7 @@
                     var tlm= Model.Value<IPublishedContent>("tLM");
                     if (tlm != null)
                     {
-                        <img  src="@tlm.MediaUrl()" style="width: 100%; border-radius: 20px;" alt="" />
+                        <img  src="@tlm.MediaUrl()" style="width: 100%; " alt="" />
                     }
                 }
 
@@ -392,7 +392,7 @@
                     var tra4= Model.Value<IPublishedContent>("tratado4");
                     if (tra4 != null)
                     {
-                        <img  src="@tra4.MediaUrl()" style="width: 100%; border-radius: 20px;" alt="" />
+                        <img  src="@tra4.MediaUrl()" style="width: 100%; " alt="" />
                     }
                 }
 
@@ -403,7 +403,7 @@
                     var tra5= Model.Value<IPublishedContent>("tratado5");
                     if (tra5 != null)
                     {
-                        <img  src="@tra5.MediaUrl()" style="width: 100%; border-radius: 20px;" alt="" />
+                        <img  src="@tra5.MediaUrl()" style="width: 100%; " alt="" />
                     }
                 }
 
@@ -414,7 +414,7 @@
                     var tra6= Model.Value<IPublishedContent>("tratado6");
                     if (tra6 != null)
                     {
-                        <img  src="@tra6.MediaUrl()" style="width: 100%; border-radius: 20px;" alt="" />
+                        <img  src="@tra6.MediaUrl()" style="width: 100%; " alt="" />
                     }
                 }
 
@@ -425,7 +425,7 @@
                     var tra7= Model.Value<IPublishedContent>("tratado7");
                     if (tra7 != null)
                     {
-                        <img  src="@tra7.MediaUrl()" style="width: 100%; border-radius: 20px;" alt="" />
+                        <img  src="@tra7.MediaUrl()" style="width: 100%; " alt="" />
                     }
                 }
 
@@ -897,6 +897,19 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.1.1/chart.umd.js"></script>
 
+<script>
+    const elementos = document.querySelectorAll('.etapasmapa');
+
+    elementos.forEach(function(elemento) {
+        elemento.addEventListener('click', function() {
+            elementos.forEach(function(elem) {
+                elem.classList.remove('nclass');
+            });
+
+            elemento.classList.add('nclass')
+        })
+    })
+</script>
 
 <script>
             const names = []

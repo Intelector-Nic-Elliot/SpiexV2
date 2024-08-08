@@ -93,6 +93,60 @@
 <br/>
 }
 
+
+
+<!--Formulario Chino-->
+@if (Model.Url().ToString().ToLower().Contains("/zh-cn/"))
+{
+    <div class="container">
+        <h1 class="spiex-section-title py-5">联系我们</h1>
+    </div>
+    <div class="container-fluid mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-7 py-5 bg-gris contact-form">
+                    <div class="row">
+                        @await Html.PartialAsync("_FContactoCH", new UmbracoProject1.Models.SolicitudCHModel())
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-5 py-5 bg-azul contact-info">
+                    <p class="spiex-lead text-white mb-4">
+                        信息
+                    </p>
+                    <div>
+                        <div class="d-flex">
+                            <i class="bi bi-geo-alt-fill px-4 text-white"></i>
+                            <p class="spiex-p-lead text-white m-0">Managua, 尼加拉瓜</p>
+                        </div><hr>
+                        <div class="d-flex">
+                            <i class="bi bi-telephone-fill px-4 text-white"></i>
+                            <p class="spiex-p-lead text-white m-0">联系方式： (505) 2228-2803</p>
+                        </div><hr>
+                        <div class="d-flex">
+                            <i class="bi bi-envelope-fill px-4 text-white"></i>
+                            <p class="spiex-p-lead text-white m-0">科雷奥: info@spiex.gob.ni</p>
+                        </div><hr>
+                        <div class="d-flex">
+                            <i class="bi bi-envelope-fill px-4 text-white"></i>
+                            <p class="spiex-p-lead text-white m-0">地址： Avenida Bolivar a Chavez， Lado sur Asamblea Nacional</p>
+                        </div><hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br />
+}
+
+
+
+
+
+
+
+
 <!-- Preguntas Frecuentes -->
 <div class="container-fluid bg-gris">
     <div class="container">
@@ -123,6 +177,8 @@
         </div>
     </div>
     </div>
+
+
 
 </div>        
 @section Scripts{

@@ -14,17 +14,17 @@ using System.Net;
 
 namespace UmbracoProject1.Controllers
 {
-    public class requestsController : SurfaceController
+    public class SolicitudesCHController : SurfaceController
     {
-        private ILogger<requestsController> _log;
-        public requestsController(
+        private ILogger<SolicitudesCHController> _log;
+        public SolicitudesCHController(
             IUmbracoContextAccessor umbracoContextAccessor,
             IUmbracoDatabaseFactory databaseFactory,
             ServiceContext services,
             AppCaches appCaches,
             IProfilingLogger profilingLogger,
             IPublishedUrlProvider publishedUrlProvider,
-            ILogger<requestsController> log
+            ILogger<SolicitudesCHController> log
         ) : base(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
         {
             _log = log;
@@ -33,14 +33,14 @@ namespace UmbracoProject1.Controllers
         [HttpGet]
         public IActionResult Crear()
         {
-            RequestModel model = new RequestModel();
+            SolicitudCHModel model = new SolicitudCHModel();
 
-            return PartialView("_Contact", model);
+            return PartialView("_ContactoCH", model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Crear(RequestModel model)
+        public IActionResult Crear(SolicitudCHModel model)
         {
             string recaptchaResponse = Request.Form["g-recaptcha-response"];
             bool isValid = ValidateRecaptcha(recaptchaResponse);
@@ -48,22 +48,22 @@ namespace UmbracoProject1.Controllers
             if (isValid)
             {
                 var cs = Services.ContentService;
-                var pId = new Guid("5933c3e3-ad04-40cc-b1ef-6540c0a61df4"); //5933c3e3-ad04-40cc-b1ef-6540c0a61df4
-                var solicitud = cs.Create(model.Email, pId, "Request");
-                solicitud.SetValue("name1", model.Names);
-                solicitud.SetValue("lastname", model.LastName);
-                solicitud.SetValue("company", model.Company);
-                solicitud.SetValue("position", model.Position);
-                solicitud.SetValue("email", model.Email);
-                solicitud.SetValue("phone", model.Phone);
-                solicitud.SetValue("message", model.Message);
+                var pId = new Guid("87ed8bf2-ea6c-4cd3-9c3a-2442e3f57d74"); //87ed8bf2-ea6c-4cd3-9c3a-2442e3f57d74
+                var solicitud = cs.Create(model.Correoch, pId, "Request");
+                solicitud.SetValue("nombrech", model.Nombrech);
+                solicitud.SetValue("apellidoch", model.Apellidoch);
+                solicitud.SetValue("empresach", model.Empresach);
+                solicitud.SetValue("cargoch", model.Cargoch);
+                solicitud.SetValue("correoch", model.Correoch);
+                solicitud.SetValue("telefonoch", model.Telefonoch);
+                solicitud.SetValue("mensajech", model.Mensajech);
                 cs.SaveAndPublish(solicitud);
-                return PartialView("_Thanks");
+                return PartialView("_GraciasCH");
             }
             else
             {
-                ModelState.AddModelError("ReCaptcha", "Please verify that you are not a robot");
-                return PartialView("_FContact");
+                ModelState.AddModelError("ReCaptcha", "请确认我不是机器人");
+                return PartialView("_FContactoCH");
             }
 
 
