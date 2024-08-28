@@ -1,23 +1,22 @@
-﻿@model UmbracoProject1.Models.SolicitudCHModel
+﻿@model UmbracoProject1.Models.SolicitudeschModel
 <!-- Modal -->
 <div class="modal" id="infoModal" tabindex="-1" aria-labelledby="infoModal" style="z-index:1141">
-  <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
-    <div class="modal-content">
-      <div class="modal-body p-0">
-        <div class="card card-plain">
-          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-            <div class="bg-azul text-center py-4">
-              <h4 class="font-weight-bolder text-white mt-1">联系我们</h4>
+    <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+        <div class="modal-content">
+            <div class="modal-body p-0">
+                <div class="card card-plain">
+                    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                        <div class="bg-azul text-center py-4">
+                            <h4 class="font-weight-bolder text-white mt-1">联系我们</h4>
+                        </div>
+                    </div>
+                    <div class="card-body pb-3">
+                        @await Html.PartialAsync("_FContactoch", Model)
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="card-body pb-3">
-              @await Html.PartialAsync("_FContactoCH", Model)
-                       
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 
 <script src="https://www.google.com/recaptcha/api.js"></script>

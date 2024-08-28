@@ -146,6 +146,12 @@
                                                 <span class="text-sm text-white opacity-8">En linea..</span>
 
                                             }
+
+                                        @if (Model.Url().ToString().ToLower().Contains("/zh-cn/"))
+                                            {
+                                                <span class="text-sm text-white opacity-8">在线..</span>
+
+                                            }
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-left align-items-center">
@@ -178,6 +184,14 @@
                                                 <h3 class="tile-title text-center">Consulta</h3>
 
                         <button type="button" id="btnComenzar" class="btn w-100 text-white my-4 mb-2">Iniciar</button>
+
+                                            }
+
+                                                @if (Model.Url().ToString().ToLower().Contains("/zh-cn/"))
+                                            {
+                                                <h3 class="tile-title text-center">咨询</h3>
+
+                            <button type="button" id="btnComenzar" class="btn w-100 text-white my-4 mb-2">开始</button>
 
                                             }
                     </div>

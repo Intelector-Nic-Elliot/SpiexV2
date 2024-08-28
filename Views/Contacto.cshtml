@@ -99,14 +99,14 @@
 @if (Model.Url().ToString().ToLower().Contains("/zh-cn/"))
 {
     <div class="container">
-        <h1 class="spiex-section-title py-5">联系我们</h1>
+        <h1 class="spiex-section-title py-5">形式</h1>
     </div>
     <div class="container-fluid mb-5">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-7 py-5 bg-gris contact-form">
                     <div class="row">
-                        @await Html.PartialAsync("_FContactoCH", new UmbracoProject1.Models.SolicitudCHModel())
+                        @await Html.PartialAsync("_FContactoch", new UmbracoProject1.Models.SolicitudeschModel())
                     </div>
                 </div>
 

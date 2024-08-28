@@ -1,19 +1,24 @@
-﻿@model UmbracoProject1.Models.SolicitudCHModel
+﻿@model UmbracoProject1.Models.SolicitudeschModel
+
 <style>
-    #infoModal .modal-content{
-        border-radius:20px;
-        border:none;
+    #infoModal .modal-content {
+        border-radius: 20px;
+        border: none;
     }
-    .card.card-plain{
-        border:none;  
+
+    .card.card-plain {
+        border: none;
     }
-    .bg-azul.text-center.py-4{
-        border-radius:20px 20px 0px 0px;
+
+    .bg-azul.text-center.py-4 {
+        border-radius: 20px 20px 0px 0px;
     }
 </style>
+
+
 <div id="fContactoDiv">
     <form id="fContacto"
-          asp-controller="SolicitudesCH"
+          asp-controller="Solicitudesch"
           asp-action="Crear"
           data-ajax="true"
           data-ajax-method="POST"
@@ -47,13 +52,13 @@
 
         <div class="input-group input-group-outline mb-3">
             @Html.LabelFor(x => x.Correoch, new { @class = "form-label spiex-p-lead text-dark" })
-            <input class="form-control b-10" asp-for="@Model.Correoch ">
+            <input class="form-control b-10" asp-for="@Model.Correoch">
             <small class="form-text text-muted mb-1 mt-0"><span asp-validation-for="@Model.Correoch" class="text-danger"></span></small>
         </div>
         <div class="input-group input-group-outline mb-3">
             @Html.LabelFor(x => x.Telefonoch, new { @class = "form-label spiex-p-lead text-dark" })
-            <input class="form-control b-10" asp-for="@Model.Telefonoch ">
-            <small class="form-text text-muted mb-1 mt-0"><span asp-validation-for="@Model.Telefonoch " class="text-danger"></span></small>
+            <input class="form-control b-10" asp-for="@Model.Telefonoch">
+            <small class="form-text text-muted mb-1 mt-0"><span asp-validation-for="@Model.Telefonoch" class="text-danger"></span></small>
         </div>
         <div class="input-group input-group-outline mb-3">
             @Html.LabelFor(x => x.Mensajech, new { @class = "form-label spiex-p-lead text-dark" })
@@ -61,14 +66,11 @@
             <small class="form-text text-muted mb-1 mt-0"><span asp-validation-for="@Model.Mensajech" class="text-danger"></span></small>
         </div>
 
-        <div id="captcha" class="g-recaptcha input-group input-group-outline mb-3" data-sitekey="6Lca7jkoAAAAAMFVoTT4MvO6qAhW2JUWRcbql4Mw"></div>
+        <div class="g-recaptcha input-group input-group-outline mb-3" data-sitekey="6Lca7jkoAAAAAMFVoTT4MvO6qAhW2JUWRcbql4Mw"></div>
         @Html.ValidationMessageFor(x => x.ReCaptcha, "", new { @class = "text-danger" })
-
-
 
         <div class="text-center">
             <input type="submit" class="btn-spiex" value="发送" />
         </div>
     </form>
 </div>
-

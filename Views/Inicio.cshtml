@@ -415,6 +415,10 @@
                     {
                     <a id="ver-todas" href="/en-us/noticias" class="btn-spiex-second">@Model.Value("btnnoticiastodas")</a>
                     }
+                     @if (Model.Url().ToString().ToLower().Contains("/zh-cn/"))
+                    {
+                    <a id="ver-todas" href="/zh-cn/消息" class="btn-spiex-second">@Model.Value("btnnoticiastodas")</a>
+                    }
     </div> 
 </div>
 

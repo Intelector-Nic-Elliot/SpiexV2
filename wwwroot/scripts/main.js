@@ -3,12 +3,6 @@
     AOS.init()
     "use strict";
 
-
-    
-
-
-
-
     
 })(jQuery);
 
