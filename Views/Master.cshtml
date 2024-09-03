@@ -34,7 +34,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Sarabun:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="/css/owl.carousel.min.css" rel="stylesheet">
 
 
@@ -108,7 +108,8 @@
            <li><a href="https://twitter.com/SPIEX_NIC" aria-label="Visita nuestra red social twitter"><i class="bi bi-twitter ms-3 text-white spiex-p-lead"></i></a></li> 
            <li><a href=" https://www.youtube.com/investmentnicaragua" aria-label="Visita nuestro canal de youtube"><i class="bi bi-youtube ms-3 text-white spiex-p-lead"></i></a></li> 
          <li><a href="https://www.linkedin.com/company/spiex/" aria-label="visita nuestro perfil de linkedin"><i class="bi bi-linkedin ms-3 text-white spiex-p-lead"></i></a></li>
-         <a href="#"><i class="bi bi-wechat"></i></a>
+                    <a href="#"><i class="bi bi-wechat ms-3 text-white spiex-p-lead"></i></a>
+
 
         </ul>
       </div>
@@ -170,7 +171,8 @@
             <a href="https://twitter.com/SPIEX_NIC"><i class="bi bi-twitter ms-3 text-white spiex-p-lead"></i></a>
             <a href="https://www.youtube.com/investmentnicaragua"><i class="bi bi-youtube ms-3 text-white spiex-p-lead"></i></a>
             <a href="https://www.linkedin.com/company/spiex/"><i class="bi bi-linkedin ms-3 text-white spiex-p-lead"></i></a>
-            <a href="#"><i class="bi bi-wechat"></i></a>
+                    <a href="#"><i class="bi bi-wechat ms-3 text-white spiex-p-lead"></i></a>
+
         </ul>
       </div>
     </div>
@@ -234,7 +236,8 @@
                     <a href="https://twitter.com/SPIEX_NIC"><i class="bi bi-twitter ms-3 text-white spiex-p-lead"></i></a>
                     <a href="https://www.youtube.com/investmentnicaragua"><i class="bi bi-youtube ms-3 text-white spiex-p-lead"></i></a>
                     <a href="https://www.linkedin.com/company/spiex/"><i class="bi bi-linkedin ms-3 text-white spiex-p-lead"></i></a>
-                    <a href="#"><i class="bi bi-wechat"></i></a>
+                    <a href="#"><i class="bi bi-wechat ms-3 text-white spiex-p-lead"></i></a>
+
                 </ul>
             </div>
         </div>
@@ -288,11 +291,17 @@
 
 
 <script>
+    
     var pre = [];
     var res = [];
 
+
     var questions = [];
-    var answers = []
+    var answers = [];
+
+
+    var chineseQuestions = []; // Arreglo para preguntas en chino simplificado
+    var chineseAnswers = [];   // Arreglo para respuestas en chino simplificado
 
     function Chats() {
         $.ajax({
@@ -300,39 +309,73 @@
             type: 'GET',
         }).done(function (result) {
             $(result).each(function (index) {
-                if ($(this).text().includes('¿') && $(this).text().includes('?')) {
-                    pre.push($(this).text());
+                let text = $(this).text();
+
+                // Si el texto es un JSON, intenta parsearlo
+                try {
+                    let json = JSON.parse(text);
+                    if (json.markup) {
+                        text = json.markup; // Extraer el markup de la respuesta
+                    }
+                } catch (e) {
+                    // No hacer nada si no es un JSON válido
                 }
 
-                if (!$(this).text().includes('¿') && $(this).text().includes('?')) {
-                    questions.push($(this).text());
+                // Eliminar el markup HTML si existe
+                text = text.replace(/<\/[^>]+(>|$)/g, "");
+
+                // Verificar si el texto contiene caracteres chinos simplificados
+                const containsChinese = /[\u4e00-\u9fff]/.test(text);
+
+                // Almacenar preguntas en español
+                if (text.includes('¿') && text.includes('?') && !containsChinese) {
+                    pre.push(text);
+                }
+
+                // Almacenar preguntas en inglés
+                if (text.includes('What') || text.includes('How') || text.includes('Is')) {
+                    questions.push(text);
+                }
+
+                // Almacenar respuestas en español
+                if (!containsChinese && !text.includes('ingles') && text.includes('.')) {
+                    res.push(text);
+                }
+
+                // Almacenar respuestas en inglés
+                if (text.includes('ingles') && text.includes('.')) {
+                    answers.push(text);
                 }
 
 
-                if (!$(this).text().includes('ingles') && $(this).text().includes('<')) {
-                    res.push($(this).text());
+                // Almacenar preguntas en chino simplificado
+                if (containsChinese && (text.includes('?') || text.includes('？'))) {
+                    chineseQuestions.push(text);
                 }
 
-                if ($(this).text().includes('ingles') && $(this).text().includes('<')) {
-                    answers.push($(this).text());
+
+                // Almacenar respuestas en chino simplificado
+                if (containsChinese && text.includes('.')) {
+                    chineseAnswers.push(text);
                 }
 
-            })
+            });
         });
     }
 
     $(document).ready(function () {
         Chats();
-
     });
+
+
 </script>
 
 
 <!--Script para chat flotante-->
 <script>
 
-    // Get the modal
-    var modal = document.getElementById("chatModal");
+        // Get the modal
+        var modal = document.getElementById("chatModal");
 
     // Get the button that opens the modal
     var btn = document.getElementById("btnChat");
@@ -356,25 +399,52 @@
             modal.style.display = "none";
         }
     }
+
 </script>
 
-<!--Chat Bot -->
+
+
 <script>
-    var preguntas = []
-    var respuestas = []
-
-
+     var preguntas = [];
+    var respuestas = [];
 
     var currentURL = window.location.href;
 
     if (currentURL.includes("/en-us/")) {
+        // Inglés
         preguntas = questions;
         respuestas = answers;
+    } else if (currentURL.includes("/zh-cn/")) {
+        // Chino simplificado
+        preguntas = chineseQuestions;
+        respuestas = chineseAnswers;
+        
     }
-    else {
+
+     else if (currentURL.includes("/es/")) {
+        // Chino simplificado
         preguntas = pre;
         respuestas = res;
+        
     }
+
+    else if (currentURL.includes("/")) {
+        // Chino simplificado
+        preguntas = pre;
+        respuestas = res;
+        
+    }
+
+
+    else {
+        // Español (o cualquier otro idioma que no esté especificado)
+    }
+
+
+
+
+
+
     function definirHora(informacion) {
         var divHora = document.createElement("div");
         divHora.classList.add("d-flex", "align-items-center", "text-sm", "opacity-6");
@@ -385,14 +455,24 @@
 
         var currentURL = window.location.href;
 
+
         if (currentURL.includes("/en-us/")) {
             iElemento.innerText = "Time:";
-
-
         }
-        else {
+        else if (currentURL.includes("/es/")) {
             iElemento.innerText = "Hora:";
         }
+        else if (currentURL.includes("/zh-cn/")) {
+            iElemento.innerText = "时间：";
+        }
+        else if (currentURL.includes("/")) {
+            iElemento.innerText = "Hora:";
+        }
+        else {
+            // Mensaje por defecto si no coincide ninguna de las anteriores
+            iElemento.innerText = "Select an option to help you.";
+        }
+
         divHora.appendChild(iElemento);
         var date = new Date();
         var hours = date.getHours();
@@ -523,14 +603,26 @@
         p.setAttribute("style", "margin-bottom:0;")
         var currentURL = window.location.href;
 
+
         if (currentURL.includes("/en-us/")) {
             p.innerText = "Thanks for choosing us";
-
-
         }
-        else {
+        else if (currentURL.includes("/es/")) {
             p.innerText = "Gracias por preferirnos";
         }
+        else if (currentURL.includes("/zh-cn/")) {
+            p.innerText = "感谢您选择我们。";
+        }
+        else if (currentURL.includes("/")) {
+            p.innerText = "Gracias por preferirnos";
+        }
+        else {
+            // Mensaje por defecto si no coincide ninguna de las anteriores
+            p.innerText = "Select an option to help you.";
+        }
+
+
+
         div2.appendChild(p);
         var informacion = document.createElement("p");
         informacion.setAttribute("style", "text-align: right")
@@ -552,14 +644,25 @@
         nuevaConsulta.classList.add("btn", "btn-success", "b-10");
         var currentURL = window.location.href;
 
+
         if (currentURL.includes("/en-us/")) {
             nuevaConsulta.innerText = "New Consultation";
-
-
         }
-        else {
+        else if (currentURL.includes("/es/")) {
             nuevaConsulta.innerText = "Nueva consulta";
         }
+        else if (currentURL.includes("/zh-cn/")) {
+            nuevaConsulta.innerText = "新咨询。";
+        }
+        else if (currentURL.includes("/")) {
+            nuevaConsulta.innerText = "Nueva consulta";
+        }
+        else {
+            // Mensaje por defecto si no coincide ninguna de las anteriores
+            nuevaConsulta.innerText = "Select an option to help you.";
+        }
+
+
         document.getElementById("botones").appendChild(nuevaConsulta);
         var btnNueva = document.getElementById("nuevaConsulta");
         btnNueva.addEventListener("click", usuario);
@@ -575,15 +678,25 @@
 
         var currentURL = window.location.href;
 
+
+
         if (currentURL.includes("/en-us/")) {
             terminarConsulta.innerText = "Finish Consultation";
-
-
-
         }
-        else {
+        else if (currentURL.includes("/es/")) {
             terminarConsulta.innerText = "Terminar consulta";
         }
+        else if (currentURL.includes("/zh-cn/")) {
+            terminarConsulta.innerText = "完成咨询。";
+        }
+        else if (currentURL.includes("/")) {
+            terminarConsulta.innerText = "Terminar consulta";
+        }
+        else {
+            // Mensaje por defecto si no coincide ninguna de las anteriores
+            terminarConsulta.innerText = "Select an option to help you.";
+        }
+
         document.getElementById("botones").appendChild(terminarConsulta);
         var btnTerminar = document.getElementById("terminarConsulta");
         btnTerminar.addEventListener("click", borrarBotones);
@@ -607,11 +720,22 @@
 
         if (currentURL.includes("/en-us/")) {
             bot("Select an option to help you.");
-
         }
-        else {
+        else if (currentURL.includes("/es/")) {
             bot("Selecciona una opción para brindarte ayuda.");
         }
+        else if (currentURL.includes("/zh-cn/")) {
+            bot("选择一个选项来帮助您。");
+        }
+        else if (currentURL.includes("/")) {
+            bot("Selecciona una opción para brindarte ayuda.");
+        }
+        else {
+            // Mensaje por defecto si no coincide ninguna de las anteriores
+            bot("Select an option to help you.");
+        }
+
+
         usuario();
 
     }
