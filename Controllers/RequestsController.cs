@@ -70,7 +70,7 @@ namespace UmbracoProject1.Controllers
         }
         private bool ValidateRecaptcha(string recaptchaResponse)
         {
-            string secretKey = "6Lca7jkoAAAAALz6_q7gmgQZzYedy_vLhcSawN7U";
+            string secretKey = "6Le81jYoAAAAAE0brTSSRYOGqoHYo_qc3O8s4IXG";
             string apiUrl = "https://www.google.com/recaptcha/api/siteverify";
             var client = new WebClient();
             var response = client.DownloadString($"{apiUrl}?secret={secretKey}&response={recaptchaResponse}");

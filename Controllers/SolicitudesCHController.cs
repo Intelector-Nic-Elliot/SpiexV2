@@ -50,7 +50,7 @@ namespace UmbracoProject1.Controllers
             if (isValid)
             {
                 var cs = Services.ContentService;
-                var pId = new Guid("28e9e5d5-a3c4-4f2e-a283-32644c087505"); //28e9e5d5-a3c4-4f2e-a283-32644c087505
+                var pId = new Guid("d0edac18-37cc-4025-a962-a9b482a3e4c0"); //d0edac18-37cc-4025-a962-a9b482a3e4c0
                 var solicitud = cs.Create(model.Correoch, pId, "solicitudch");
                 solicitud.SetValue("nombrech", model.Nombrech);
                 solicitud.SetValue("apellidoch", model.Apellidoch);
@@ -73,7 +73,7 @@ namespace UmbracoProject1.Controllers
 
         private bool ValidateRecaptcha(string recaptchaResponse)
         {
-            string secretKey = "6Lca7jkoAAAAALz6_q7gmgQZzYedy_vLhcSawN7U ";   //6Lca7jkoAAAAALz6_q7gmgQZzYedy_vLhcSawN7U   / 6Lca7jkoAAAAAMFVoTT4MvO6qAhW2JUWRcbql4Mw
+            string secretKey = "6Le81jYoAAAAAE0brTSSRYOGqoHYo_qc3O8s4IXG ";   //6Lca7jkoAAAAALz6_q7gmgQZzYedy_vLhcSawN7U   / 6Lca7jkoAAAAAMFVoTT4MvO6qAhW2JUWRcbql4Mw
             string apiUrl = "https://www.google.com/recaptcha/api/siteverify";
             var client = new WebClient();
             var response = client.DownloadString($"{apiUrl}?secret={secretKey}&response={recaptchaResponse}");
